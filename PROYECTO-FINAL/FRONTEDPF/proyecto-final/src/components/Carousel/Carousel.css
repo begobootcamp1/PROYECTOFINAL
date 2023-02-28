@@ -1,4 +1,4 @@
-/* .Carousel{
+.Carousel{
         posición: 'absoluta' , 
         pantalla: 'bloque' , 
         zIndex: - 2 , 
@@ -13,9 +13,9 @@
         MozTransitionTimingFunction: 2 , 
         WebkitTransitionTimingFunction: 2, 
         OTransitionTimingFunction: 2 
-} */
+} 
 
-/*.Carousel_caption{
+.Carousel_caption{
     top:0,
     botton:0,
     left:0,
@@ -26,18 +26,18 @@
     aling-items:flex-start,
     text-aling:left
     background:linear-gradient
-}*/
+}
 
-/* .carousel {
+ .carousel {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   width: 100%;
   height: 500px;
-} */
+}
 
-/*.carousel-item {
+.carousel-item {
     position: absolute;
     top: 0;
     left: 0;
@@ -48,9 +48,9 @@
     justify-content: center;
     text-align: center;
   }
-*/
 
-/*.carousel-button {
+
+.carousel-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -61,16 +61,16 @@
   outline: none;
   cursor: pointer;
 }
-*/
-/*.carousel-button-prev {
+
+.carousel-button-prev {
     left: 10px;
   }
-  */
-/* .carousel-button-next {
-    right: 10px;
-  } */
 
+ .carousel-button-next {
+    right: 10px;
+  }
+/* 
 renderarrowprev: (clickHandler: () => void, hasPrev: boolean, label: string) =>
   React.ReactNode;
 renderarrownext: (clickHandler: () => void, hasNext: boolean, label: string) =>
-  React.ReactNode;
+  React.ReactNode; */

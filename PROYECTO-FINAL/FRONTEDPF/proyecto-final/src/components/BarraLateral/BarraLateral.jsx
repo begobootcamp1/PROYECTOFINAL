@@ -1,20 +1,24 @@
 import "./BarraLateral.css";
-import Boton from "../Boton/Boton";
 import Reloj from "../Reloj/Reloj";
-import Saludo from "../Reloj/Saludo";
+import Saludo from "../Saludo/Saludo";
+import CardAdministrador from "../Card/CardAdministrador";
+import FechaActual from "../FechaActual/FechaActual";
 
 export default function BarraLateral() {
   return (
     <div className="barraLateral">
-      <div>
+      <div className="Reloj">
         <Reloj />
       </div>
-      <div>
+      <div className="FechaActual">
+        <FechaActual />
+      </div>
+      <div className="Saludo">
         <Saludo />
       </div>
-      <div>
-        <Boton />
-      </div>
+      {/* <div className="CardAdministrador">
+        <CardAdministrador />
+      </div> */}
     </div>
   );
 }

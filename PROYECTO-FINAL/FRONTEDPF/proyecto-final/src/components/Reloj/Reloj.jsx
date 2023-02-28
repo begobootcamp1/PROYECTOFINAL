@@ -15,5 +15,9 @@ export default function RelojAnalogico() {
     };
   }, []);
 
-  return <Reloj value={value} />;
+  return (
+    <div className="relojAnalogico">
+      <Reloj value={value} />
+    </div>
+  );
 }

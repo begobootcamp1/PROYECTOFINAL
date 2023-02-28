@@ -1,9 +1,10 @@
 import "./Botonera.css";
-import Boton from "../Boton/Boton";
 import CalendarioBoton from "../CalendarioBoton/CalendarioBoton";
 import EmergenciaBoton from "../EmergenciaBoton/EmergenciaBoton";
 import PastilleroBoton from "../PastilleroBoton/PastilleroBoton";
 import MusicaBoton from "../MusicaBoton/MusicaBoton";
+import AlbumBoton from "../AlbumBoton/AlbumBoton";
+//import ContactoBoton from "../ContactoBoton/ContactoBoton";
 
 export default function Botonera() {
   return (
@@ -15,16 +16,14 @@ export default function Botonera() {
         <PastilleroBoton />
       </div>
       <div>
-        <Boton />
-        Album
+        <AlbumBoton />
       </div>
       <div>
         <CalendarioBoton />
       </div>
-      <div>
-        <Boton />
-        Contacto
-      </div>
+      {/* <div>
+        <ContactoBoton />
+      </div> */}
       <div>
         <MusicaBoton />
       </div>

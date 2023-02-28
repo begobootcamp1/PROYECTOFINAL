@@ -1,5 +1,9 @@
-import Home from "../../views/Home/Home";
+import { Outlet } from "react-router-dom";
 
 export default function Layout() {
-  return <Home />;
+  return (
+    <>
+      <Outlet />
+    </>
+  );
 }

@@ -16,7 +16,7 @@ export default function VistaBarraLateral() {
 
   return (
     <div>
-      <BarraLateral Reloj={Reloj} datosContacto={contacto} />
+      <BarraLateral Reloj={Reloj} Saludo={Saludo} datosContacto={contacto} />
     </div>
   );
 }

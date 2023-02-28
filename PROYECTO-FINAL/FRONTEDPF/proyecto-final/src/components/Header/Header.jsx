@@ -1,5 +1,4 @@
 import "./Header.css";
-// import foto from "../../public/imagenes/imagenesCarousel/Yo.webp";
 
 export default function Header() {
   return (
@@ -7,8 +6,7 @@ export default function Header() {
       <div>
         <img
           className="header__img"
-          img={foto}
-          type="imagen/webp"
+          src={`http://localhost:5173/imagenes/imagenesCarousel/Yo.webp`}
           width="200 px"
           alt="foto"
         />

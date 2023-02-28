@@ -1,7 +1,7 @@
 .barraLateral {
   display: grid;
   grid-template-columns: 200px;
-  grid-template-rows: 200px 200px;
+  grid-template-rows: 200px 50px 150px 200px;
   /* podemos poner auto en lugar de los px de las columnas para ajustar el texto. si en columnas ponemos 1fr para cada una nos ocupará toda la página */
   gap: 1em;
   justify-items: stretch;
@@ -15,4 +15,21 @@
 }
 .barraLateral > div:hover {
   border: 2px solid red;
+}
+.barraLateral .Reloj {
+  font-family: sans-serif;
+  text-align: center;
+  justify-items: stretch;
+  align-items: stretch;
+}
+.barraLateral.FechaActual {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+.barraLateral.CardAdministrador {
+  font-family: sans-serif;
+  text-align: center;
+  justify-items: stretch;
+  align-items: stretch;
 }

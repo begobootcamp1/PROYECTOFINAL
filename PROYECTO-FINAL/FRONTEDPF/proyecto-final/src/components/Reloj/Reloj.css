@@ -4,3 +4,9 @@
   justify-items: stretch;
   align-items: stretch;
 }
+.relojAnalogico {
+  border-radius: 3px solid;
+  justify-items: stretch;
+  align-items: stretch;
+  text-align: center;
+}
