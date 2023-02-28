@@ -1,32 +1,21 @@
-import Boton from "../Boton/Boton";
 import MusicaPopUp from "../MusicaPopUp/MusicaPopUp";
 import { useState } from "react";
+import Musica from "../../../public/iconos/Musica.jpg";
 
 export default function MusicaBoton() {
   const [showMusica, setShowMusica] = useState(false); // define state variable para controlar el popup
 
   const handleMusicaClick = () => {
-    setShowMusica(true); // al hacer click el estado de la variable pasa a true
-  };
-
-  const handleMusicaClose = () => {
-    setShowMusica(false); // cuando cerramos el popup el estado de la variable pasa a falso
+    setShowMusica(!showMusica); // al hacer click el estado de la variable pasa a true
   };
   return (
     <>
-      <Boton nombreTarjeta="Musica" onClick={handleMusicaClick} />
-      {/* pasa el nombre de la tarjeta como una propiedad del componente Boton y maneja el evento click */}
-      {showMusica && <MusicaPopUp onClose={handleMusicaClose} />}
-      {/* se ve el componente PastilleroPopup cuando el estado de la variable es true */}
-      {/* enviarle al botón un parámetro con el nombre de la tarjeta, en este caso el pastillero.
-       El botón recibe ese parámetro y debería llamar al popup de la tarjeta que corresponde con ese parámetro 
-      El popup sería el pastillero y un botón para cerrar*/}
-      <h2>Musica</h2>
+      <div>
+        <button nombreTarjeta="Musica" onClick={handleMusicaClick}>
+          <img src={Musica} alt="musica" />
+        </button>
+      </div>
+      {showMusica && <MusicaPopUp onClick={handleMusicaClick}></MusicaPopUp>}
     </>
   );
 }
-// el componente boton recive la propiedad nombreTarjeta con el valor Pastillero. El evento ocClick se
-//maneja con la función handlePastilleroClick function, que pone el estado de la variable showPastillero state
-// a true. El componente PastilleroPopUp es importado y se renderiza usando el estado de la variable
-//showPastillero, que recibe una propiedad onClose, que maneja el evento de cierre deteando el estado
-//de la variable showPastillero a false.

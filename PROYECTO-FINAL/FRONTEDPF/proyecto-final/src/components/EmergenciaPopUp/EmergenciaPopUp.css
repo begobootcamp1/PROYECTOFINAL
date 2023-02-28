@@ -9,12 +9,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .popup-content {
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 150%;
+  max-height: 150%;
   overflow-y: auto;
   background-color: #fff; /* white background */
   padding: 20px;

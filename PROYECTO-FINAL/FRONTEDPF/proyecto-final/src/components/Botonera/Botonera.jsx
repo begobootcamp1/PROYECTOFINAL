@@ -4,7 +4,7 @@ import EmergenciaBoton from "../EmergenciaBoton/EmergenciaBoton";
 import PastilleroBoton from "../PastilleroBoton/PastilleroBoton";
 import MusicaBoton from "../MusicaBoton/MusicaBoton";
 import AlbumBoton from "../AlbumBoton/AlbumBoton";
-//import ContactoBoton from "../ContactoBoton/ContactoBoton";
+import ContactoBoton from "../ContactoBoton/ContactoBoton";
 
 export default function Botonera() {
   return (
@@ -21,9 +21,9 @@ export default function Botonera() {
       <div>
         <CalendarioBoton />
       </div>
-      {/* <div>
+      <div>
         <ContactoBoton />
-      </div> */}
+      </div>
       <div>
         <MusicaBoton />
       </div>

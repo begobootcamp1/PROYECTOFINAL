@@ -1,6 +1,5 @@
 import React from "react";
 import "./MusicaPopUp.css";
-//import {canciones} from "../../../public/canciones";
 
 export default function MusicaPopup(props) {
   return (

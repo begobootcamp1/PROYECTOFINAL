@@ -1,6 +1,4 @@
 import EmergenciaPopUp from "../EmergenciaPopUp/EmergenciaPopUp";
-// import { useEffect } from "react";
-import Boton from "../Boton/Boton";
 import { useEffect, useState } from "react";
 import emergencia from "../../../public/iconos/emergencia.jpg";
 
@@ -11,9 +9,6 @@ export default function EmergenciaBoton() {
     setShowContacto(!showContacto); // al hacer click el estado de la variable pasa a true
   };
 
-  // const handleContactoClose = () => {
-  //   setShowContacto(false); // cuando cerramos el popup el estado de la variable pasa a falso
-  // };
   return (
     <>
       <div>
@@ -21,16 +16,9 @@ export default function EmergenciaBoton() {
           <img src={emergencia} alt="emergencia" />
         </button>
       </div>
-      {/* pasa el nombre de la tarjeta como una propiedad del componente Boton y maneja el evento click */}
       {showContacto && (
         <EmergenciaPopUp onClick={handleContactoClick}></EmergenciaPopUp>
       )}
-      {/* se ve el componente CalendarioPopup cuando el estado de la variable es true */}
-      {/* enviarle al botón un parámetro con el nombre de la tarjeta, en este caso el calen
-      dario. El botón recibe ese parámetro y debería llamar al popup de la tarjeta que corresponde con ese parámetro 
-      El popup sería el calendario y un botón para cerrar*/}
-
-      {/* <EmergenciaPopUp /> */}
     </>
   );
 }
