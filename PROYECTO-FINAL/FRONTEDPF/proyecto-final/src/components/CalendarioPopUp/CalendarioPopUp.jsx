@@ -6,10 +6,10 @@ export default function CalendarioPopup(props) {
   return (
     <div className="popup">
       <div className="popup-content">
-        <button className="close-button" onClick={props.onClose}>
+        <button className="close-button" onClick={props.onClick}>
           Cerrar
         </button>
-        <h3>Calendario Eventos</h3>
+        <h3>Calendario eventos</h3>
         <CalendarioEvento />
       </div>
     </div>

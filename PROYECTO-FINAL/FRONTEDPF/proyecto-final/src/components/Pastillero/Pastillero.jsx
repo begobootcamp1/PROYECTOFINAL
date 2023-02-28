@@ -1,6 +1,4 @@
 import "./Pastillero.css";
-//import PastilleroBoton from "../PastilleroBoton/PastilleroBoton";
-import Boton from "../Boton/Boton";
 
 export default function Pastillero() {}
 

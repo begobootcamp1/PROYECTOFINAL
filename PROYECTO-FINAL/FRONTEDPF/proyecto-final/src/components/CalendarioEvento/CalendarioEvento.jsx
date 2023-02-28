@@ -1,5 +1,4 @@
 import "./CalendarioEvento.css";
-import Boton from "../Boton/Boton";
 
 export default function CalendarioEvento() {}
 

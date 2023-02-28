@@ -1,0 +1,28 @@
+.playlist {
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.playlist h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.playlist ul {
+  list-style: none;
+  padding: 0;
+}
+
+.playlist li {
+  margin-bottom: 5px;
+}
+
+.playlist li .titulo {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.playlist li .artista {
+  font-style: italic;
+}
