@@ -8,7 +8,7 @@ export default function PastilleroPopup(props) {
         <button className="close-button" onClick={props.onClick}>
           Cerrar
         </button>
-        <h3>Pastillero</h3>
+        <Pastillero />
       </div>
     </div>
   );

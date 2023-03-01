@@ -1,13 +1,13 @@
 .barraLateral {
   display: grid;
-  grid-template-columns: 200px;
-  grid-template-rows: 200px 50px 150px 200px;
+  grid-template-columns: 320px;
+  grid-template-rows: 300px 90px 150px 200px;
   /* podemos poner auto en lugar de los px de las columnas para ajustar el texto. si en columnas ponemos 1fr para cada una nos ocupará toda la página */
   gap: 1em;
   justify-items: stretch;
-  align-items: stretch;
+  align-items: center;
   background: rgb(97, 141, 97);
-  padding: 6%;
+  padding: 7px;
   margin: 0;
 }
 .barraLateral > div {
@@ -22,15 +22,12 @@
   text-align: center;
   justify-items: stretch;
   align-items: stretch;
-  border-radius: 50%;
-  border-color: #333;
-  border-style: double;
 }
 .barraLateral.FechaActual {
   font-size: 48px;
-  font-weight: bold;
-  text-align: center;
-  color: #333;
+  font-weight: bolder;
+  text-align: start;
+  color: black;
 }
 .barraLateral.CardAdministrador {
   font-family: sans-serif;

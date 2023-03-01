@@ -1,62 +1,37 @@
-.root {
-  box-sizing: border-box;
-}
-.container {
-  background: linear-gradient(to right, mediumpurple, lightsalmon);
-}
-.titulo {
-  text-align: center;
-  color: black;
-}
-.calendario {
-  background: grey;
-  width: 80%;
-  max-width: 600px;
-  margin: 1em auto;
-  padding: 0.5em 0;
-}
-.calendarioInfo {
-  display: flex;
-  align-items: center;
-  padding: 0 2em;
-  font-size: 1.2 em;
-  text-transform: uppercase;
-}
+/* const StyledTable = styled.table`
+  border-collapse: collapse;
+  width: 100%;
+`;
 
-.calendarioPrev,
-.calendarioNext {
-  color: red;
-  cursor: pointer;
-  font-size: 1.3em;
-}
+const StyledTableRow = styled.tr`
+  border: 1px solid #ddd;
+  padding: 8px;
+`;
 
-.calendarioPrev {
-  margin-right: auto;
-}
-.calendarioNext {
-  margin-left: auto;
-}
-.calendarioSemana,
-.dia {
-  display: grid;
-  grid-template-columns: repeat (7, 1fr);
-  grid-gap: 10px;
-}
-.calendarioMes,
-.calendarioAño {
-  padding: 0.5em 1em;
-}
-.calendarioItem {
+const StyledTableHeader = styled.th`
+  border: 1px solid #ddd;
+  background-color: #f2f2f2;
+  padding: 8px;
+`;
+
+const StyledTableCell = styled.td`
+  border: 1px solid #ddd;
+  padding: 8px;
+`; */
+.tablaPastillero th td {
+  border: 1px solid;
+  width: 100%;
   text-align: center;
-  line-height: 2;
 }
-.calendarToday {
-  background: lightcoral;
-  color: white;
-  width: 50%;
-  border-radius: 50%;
-  margin: auto;
+th {
+  height: 70px;
+  background-color: aqua;
 }
-.lastDays {
-  opacity: 0.3;
+th,
+td {
+  padding: 15px;
+  background-color: ;
+}
+tr:hover {
+  background-color: coral;
 }

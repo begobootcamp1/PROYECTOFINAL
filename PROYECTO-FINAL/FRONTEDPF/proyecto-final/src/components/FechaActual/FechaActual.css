@@ -1,5 +1,15 @@
 .fecha-actual {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
+  border: 4px solid black;
+  border-radius: 50px;
+  color: white;
+  background-color: rgb(160, 80, 80);
+  padding: 4px;
+  height: 60px;
+  margin: 0px;
+  font-weight: bolder;
+  font-size: 25px;
+  text-align: center;
+  font-family: sans-serif;
+  border: 2px solid yellow;
+  top: 50%;
 }

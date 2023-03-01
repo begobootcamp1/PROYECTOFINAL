@@ -28,7 +28,7 @@ export default function Saludo() {
 
   return (
     <>
-      <h1 contentEditable={true} className="h11">
+      <h1 contentEditable={true} className="saludo">
         Hola María, <span style={cssStyle}>{greeting}</span>
       </h1>
     </>

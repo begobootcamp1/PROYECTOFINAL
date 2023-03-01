@@ -16,9 +16,9 @@ export default function BarraLateral() {
       <div className="Saludo">
         <Saludo />
       </div>
-      <div className="CardAdministrador">
+      {/* <div className="CardAdministrador">
         <CardAdministrador />
-      </div>
+      </div> */}
     </div>
   );
 }

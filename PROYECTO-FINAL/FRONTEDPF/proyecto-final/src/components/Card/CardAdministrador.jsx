@@ -12,5 +12,7 @@ export default function CardAdministrador() {
     };
     fetchData();
   }, []);
-  return <div>{datos ? <p>{`${datos[2].nombre}`}</p> : <p>cargando</p>}</div>;
+  return (
+    <div>{datos ? <p>{`${datos[2].nombre}`}</p> : <p>Cargando...</p>}</div>
+  );
 }
