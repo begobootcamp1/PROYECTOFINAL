@@ -6,8 +6,8 @@ import cors from "cors";
 import usuarioRouter from "./routes/usuarioRoute.js";
 import contactoRouter from "./routes/contactoRoute.js";
 import medicinaRouter from "./routes/medicinaRoute.js";
-import eventoRouter from "./routes/eventoRoute";
-import fileUpload from "express-fileupload";
+import eventoRouter from "./routes/eventoRoute.js";
+// import fileUpload from "express-fileupload";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 
@@ -30,14 +30,14 @@ app.use(express.text());
 app.use(logger("dev"));
 app.use(cookieParser());
 app.use(cors());
-app.use(
-  fileUpload({
-    createParentPath: true,
-    limits: { fileSize: 20 * 1024 * 1024 },
-    abortOnLimit: "Imagen demasiado grande",
-    uploadTimeout: 0,
-  })
-);
+// app.use(
+//   fileUpload({
+//     createParentPath: true,
+//     limits: { fileSize: 20 * 1024 * 1024 },
+//     abortOnLimit: "Imagen demasiado grande",
+//     uploadTimeout: 0,
+//   })
+// );
 app.use(express.static(join(__dirname, "public")));
 
 //----api middlewares-----

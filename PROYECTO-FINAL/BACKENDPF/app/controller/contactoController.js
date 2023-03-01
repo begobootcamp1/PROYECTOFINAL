@@ -1,5 +1,5 @@
 import dao from "../services/dao.js";
-import { SignJWT, jwtVerify } from "jose";
+// import { SignJWT, jwtVerify } from "jose";
 
 const contactoController = {};
 
@@ -50,6 +50,17 @@ contactoController.updateContacto = async (req, res) => {
       return res.status(400).send("error al recibir el body");
     await dao.updateContacto(req.params.id, req.body);
     return res.send(`Contacto con id ${re.params.id} modificado`);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+contactoController.getContacto = async (req, res) => {
+  // const { authorization } = req.headers;
+  // if (!authorization) return res.senStatus(401);
+
+  try {
+    let contacto = await dao.getContacto();
+    return res.send(contacto);
   } catch (e) {
     console.log(e.message);
   }

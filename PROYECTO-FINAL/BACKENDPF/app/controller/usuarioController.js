@@ -1,6 +1,6 @@
 import dao from "../services/dao.js";
-import { SignJWT, jwtVerify } from "jose";
-import md5 from "md5";
+// import { SignJWT, jwtVerify } from "jose";
+// import md5 from "md5";
 
 const usuarioController = {};
 
@@ -19,7 +19,7 @@ usuarioController.addUsuario = async (req, res) => {
     console.log(e.message);
   }
 };
-controller.loginUser = async (req, res) => {
+usuarioController.loginUsuario = async (req, res) => {
   const { nombre, fechaNacimiento, telefono, rol } = req.body;
   if (!nombre || !fechaNacimiento || !telefono || !rol)
     return res.status(400).send("Error al recibir el body");

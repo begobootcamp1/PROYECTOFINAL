@@ -4,7 +4,7 @@ import usuarioController from "../controller/usuarioController.js";
 
 const usuarioRouter = express.Router();
 usuarioRouter.post("/", usuarioController.addUsuario);
-userRouter.post("/login", usuarioController.loginUsuario);
+usuarioRouter.post("/login", usuarioController.loginUsuario);
 usuarioRouter.delete("/:id", usuarioController.deleteUsuario);
 usuarioRouter.patch("/", usuarioController.updateUsuario);
 

@@ -1,5 +1,5 @@
 import dao from "../services/dao.js";
-import { SignJWT, jwtVerify } from "jose";
+// import { SignJWT, jwtVerify } from "jose";
 
 const medicinaController = {};
 

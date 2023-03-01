@@ -7,5 +7,6 @@ contactoRouter.post("/", contactoController.addContacto);
 //usuarioRouter.post("/login", contactoController.loginContacto);
 contactoRouter.delete("/:id", contactoController.deleteContacto);
 contactoRouter.patch("/", contactoController.updateContacto);
+contactoRouter.get("/contactos", contactoController.getContacto);
 
 export default contactoRouter;

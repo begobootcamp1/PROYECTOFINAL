@@ -86,4 +86,16 @@ contactoQueries.updateContacto = async (id, contactoData) => {
   }
 };
 
+contactoQueries.getContacto = async () => {
+  let conn = null;
+  try {
+    conn = await db.createConection();
+    return await db.query("SELECT * FROM contacto", [], "select", conn);
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn && (await conn.end());
+  }
+};
+
 export default contactoQueries;

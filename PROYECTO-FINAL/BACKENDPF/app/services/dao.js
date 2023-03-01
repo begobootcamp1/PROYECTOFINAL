@@ -1,3 +1,4 @@
+import contactoQueries from "./mysqlQueries/contactoQueries.js";
 import usuarioQueries from "./mysqlQueries/usuarioQueries.js";
 
 const dao = {};
@@ -28,5 +29,6 @@ dao.addMedicina = async (medicinaData) =>
 dao.deleteMedicina = async (id) => await medicinaQueries.deleteMedicina(id);
 dao.updateMedicina = async (id, medicinaData) =>
   await medicinaQueries.updateMedicina(id, medicinaData);
+dao.getContacto = async () => await contactoQueries.getContacto();
 
 export default dao;
