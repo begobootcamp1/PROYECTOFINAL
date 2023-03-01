@@ -7,7 +7,7 @@ export default function ContactoPopup(props) {
   const [datos, setDatos] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("URL");
+      const response = await fetch("http://localhost:3000/contacto/contactos");
       let jsonData = await response.json();
       setDatos(jsonData);
     };

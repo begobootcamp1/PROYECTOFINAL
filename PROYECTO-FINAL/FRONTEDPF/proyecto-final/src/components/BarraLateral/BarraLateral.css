@@ -6,11 +6,12 @@
   gap: 1em;
   justify-items: stretch;
   align-items: stretch;
-  background: green;
-  padding: 5%;
+  background: rgb(97, 141, 97);
+  padding: 6%;
+  margin: 0;
 }
 .barraLateral > div {
-  background: white;
+  background: transparent;
   padding: 1 em;
 }
 .barraLateral > div:hover {
@@ -21,10 +22,14 @@
   text-align: center;
   justify-items: stretch;
   align-items: stretch;
+  border-radius: 50%;
+  border-color: #333;
+  border-style: double;
 }
 .barraLateral.FechaActual {
-  font-size: 24px;
+  font-size: 48px;
   font-weight: bold;
+  text-align: center;
   color: #333;
 }
 .barraLateral.CardAdministrador {
