@@ -7,14 +7,14 @@
 }
 
 .header__img {
-  width: 100px;
-  height: 100px;
+  width: 132px;
+  height: 132px;
   border-radius: 50%;
   margin-right: 20px;
 }
 
 .header__title {
-  font-size: 28px;
+  font-size: 48px;
   font-weight: bold;
   margin: 0;
 }

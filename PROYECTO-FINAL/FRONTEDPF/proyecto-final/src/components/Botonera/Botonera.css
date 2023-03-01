@@ -3,10 +3,10 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   /* podemos poner auto en lugar de los px de las columnas para ajustar el texto. si en columnas ponemos 1fr para cada una nos ocupará toda la página */
-  gap: 2em;
+  gap: 1em;
   justify-items: stretch;
   align-items: stretch;
-  background: blue;
+  background: rgb(113, 113, 151);
 }
 
 .botonera > div {
