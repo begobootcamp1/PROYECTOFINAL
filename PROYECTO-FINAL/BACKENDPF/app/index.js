@@ -7,6 +7,7 @@ import usuarioRouter from "./routes/usuarioRoute.js";
 import contactoRouter from "./routes/contactoRoute.js";
 import medicinaRouter from "./routes/medicinaRoute.js";
 import eventoRouter from "./routes/eventoRoute.js";
+import imagenesRouter from "./routes/imagenesRoute.js";
 // import fileUpload from "express-fileupload";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
@@ -45,5 +46,6 @@ app.use("/usuario", usuarioRouter);
 app.use("/contacto", contactoRouter);
 app.use("/medicina", medicinaRouter);
 app.use("/evento", eventoRouter);
+app.use("/imagenes", imagenesRouter);
 
 export default app;

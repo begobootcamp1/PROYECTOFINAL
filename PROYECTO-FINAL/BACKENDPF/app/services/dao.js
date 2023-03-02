@@ -1,5 +1,6 @@
 import contactoQueries from "./mysqlQueries/contactoQueries.js";
 import usuarioQueries from "./mysqlQueries/usuarioQueries.js";
+import imagenesQueries from "./mysqlQueries/imagenesQueries.js";
 
 const dao = {};
 
@@ -30,5 +31,12 @@ dao.deleteMedicina = async (id) => await medicinaQueries.deleteMedicina(id);
 dao.updateMedicina = async (id, medicinaData) =>
   await medicinaQueries.updateMedicina(id, medicinaData);
 dao.getContacto = async () => await contactoQueries.getContacto();
+
+dao.getimagenAlbum = async () => await imagenesQueries.getimagenAlbum();
+dao.addimagen = async (imagenData) =>
+  await imagenesQueries.addimagen(imagenData);
+dao.deleteimagen = async (id) => await imagenesQueries.deleteimagen(id);
+dao.updateimagen = async (id, imagenData) =>
+  await imagenesQueries.updateimagen(id, imagenData);
 
 export default dao;
