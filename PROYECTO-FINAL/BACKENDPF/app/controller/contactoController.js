@@ -66,4 +66,17 @@ contactoController.getContacto = async (req, res) => {
   }
 };
 
+contactoController.getContacto3 = async (req, res) => {
+  // const { authorization } = req.headers;
+  // if (!authorization) return res.senStatus(401);
+
+  try {
+    let contacto = await dao.getContacto3();
+
+    return res.send(contacto);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
 export default contactoController;

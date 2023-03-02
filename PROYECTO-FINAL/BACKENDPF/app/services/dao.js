@@ -31,6 +31,7 @@ dao.deleteMedicina = async (id) => await medicinaQueries.deleteMedicina(id);
 dao.updateMedicina = async (id, medicinaData) =>
   await medicinaQueries.updateMedicina(id, medicinaData);
 dao.getContacto = async () => await contactoQueries.getContacto();
+dao.getContacto3 = async () => await contactoQueries.getContacto3();
 
 dao.getimagenAlbum = async () => await imagenesQueries.getimagenAlbum();
 dao.addimagen = async (imagenData) =>

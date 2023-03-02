@@ -98,4 +98,20 @@ contactoQueries.getContacto = async () => {
   }
 };
 
+contactoQueries.getContacto3 = async () => {
+  let conn = null;
+  try {
+    conn = await db.createConection();
+    return await db.query(
+      "SELECT * FROM contacto WHERE id=3",
+      [],
+      "select",
+      conn
+    );
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn && (await conn.end());
+  }
+};
 export default contactoQueries;
