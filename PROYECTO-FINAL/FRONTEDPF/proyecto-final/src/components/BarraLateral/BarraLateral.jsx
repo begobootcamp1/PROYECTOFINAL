@@ -1,7 +1,6 @@
 import "./BarraLateral.css";
 import Reloj from "../Reloj/Reloj";
 import Saludo from "../Saludo/Saludo";
-import CardAdministrador from "../Card/CardAdministrador";
 import FechaActual from "../FechaActual/FechaActual";
 import CardContacto from "../Card/CardContacto";
 import { useEffect, useState } from "react";

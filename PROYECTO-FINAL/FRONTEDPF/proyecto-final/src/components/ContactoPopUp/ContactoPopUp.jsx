@@ -25,7 +25,6 @@ export default function ContactoPopup(props) {
               Cerrar
             </button>
           </div>
-          {/* <h3>Pastillero</h3> */}
         </div>
       </div>
     </>

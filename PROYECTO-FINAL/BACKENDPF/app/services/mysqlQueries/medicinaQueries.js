@@ -82,4 +82,16 @@ medicinaQueries.updateEvento = async (id, medicinaData) => {
   }
 };
 
+medicinaQueries.getMedicina = async () => {
+  let conn = null;
+  try {
+    conn = await db.createConection();
+    return await db.query("SELECT * FROM medicina", [], "select", conn);
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn && (await conn.end());
+  }
+};
+
 export default medicinaQueries;

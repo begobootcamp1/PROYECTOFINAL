@@ -1,5 +1,4 @@
 import dao from "../services/dao.js";
-// import { SignJWT, jwtVerify } from "jose";
 
 const medicinaController = {};
 
@@ -52,6 +51,15 @@ medicinaController.updateMedicina = async (req, res) => {
       return res.status(400).send("error al recibir el body");
     await dao.updateMedicina(req.params.id, req.body);
     return res.send(`Medicina con id ${re.params.id} modificada`);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+medicinaController.getMedicina = async (req, res) => {
+  try {
+    let medicina = await dao.getMedicina();
+    return res.send(medicina);
   } catch (e) {
     console.log(e.message);
   }

@@ -1,6 +1,7 @@
 import contactoQueries from "./mysqlQueries/contactoQueries.js";
 import usuarioQueries from "./mysqlQueries/usuarioQueries.js";
 import imagenesQueries from "./mysqlQueries/imagenesQueries.js";
+import medicinaQueries from "./mysqlQueries/medicinaQueries.js";
 
 const dao = {};
 
@@ -17,6 +18,8 @@ dao.addContacto = async (contactoData) =>
 dao.deleteContacto = async (id) => await contactoQueries.deleteContacto(id);
 dao.updateContacto = async (id, contactoData) =>
   await contactoQueries.updateContacto(id, contactoData);
+dao.getContacto = async () => await contactoQueries.getContacto();
+dao.getContacto3 = async () => await contactoQueries.getContacto3();
 
 dao.getEventobyId = async (id) => await eventoQueries.getEventobyId(id);
 dao.addEvento = async (eventoData) => await eventoQueries.addEvento(eventoData);
@@ -24,14 +27,12 @@ dao.deleteEvento = async (id) => await eventoQueries.deleteEvento(id);
 dao.updateEvento = async (id, eventoData) =>
   await eventoQueries.updateEvento(id, eventoData);
 
-dao.getMedicinabyId = async (id) => await medicinaQueries.getMedicinabyId(id);
+dao.getMedicina = async () => await medicinaQueries.getMedicina();
 dao.addMedicina = async (medicinaData) =>
   await medicinaQueries.addMedicina(medicinaData);
 dao.deleteMedicina = async (id) => await medicinaQueries.deleteMedicina(id);
 dao.updateMedicina = async (id, medicinaData) =>
   await medicinaQueries.updateMedicina(id, medicinaData);
-dao.getContacto = async () => await contactoQueries.getContacto();
-dao.getContacto3 = async () => await contactoQueries.getContacto3();
 
 dao.getimagenAlbum = async () => await imagenesQueries.getimagenAlbum();
 dao.addimagen = async (imagenData) =>
