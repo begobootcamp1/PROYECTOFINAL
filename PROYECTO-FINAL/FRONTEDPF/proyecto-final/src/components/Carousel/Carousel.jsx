@@ -24,18 +24,14 @@ export default function Carousel() {
         interval={6000}
         transitionTime={6000}
         infiniteLoop
+        showThumbs={false}
       >
         {datos.map((imagen, index) => (
           <div key={index}>
-            <img
-              alt={`${imagen.textoImagen}`}
-              src={`http://localhost:3000/${imagen.path}`}
-              width="400px"
-            />
             <div
               style={{
                 alignItems: "center",
-                display: "flex",
+                //display: "flex",
               }}
             >
               <p
