@@ -7,7 +7,13 @@ import { useEffect, useState } from "react";
 
 export default function BarraLateral() {
   const [datos, setDatos] = useState([]);
-
+  function emergencia() {
+    const mensaje = "Hola, necesito ayuda.";
+    const destinatario = "suarez.mbego@gmail.es";
+    const asunto = "Mensaje de mi madre";
+    const mailtoLink = `mailto:${destinatario}?subject=${asunto}&body=${mensaje}`;
+    window.location.href = mailtoLink;
+  }
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
@@ -33,7 +39,7 @@ export default function BarraLateral() {
       </div>
       <div className="CardAdministrador">
         <CardContacto datos={datos} />
-        <button>llamar</button>
+        <button onClick={() => emergencia()}>Contacto</button>
       </div>
     </div>
   );

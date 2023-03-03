@@ -1,4 +1,4 @@
-/* .Carousel{
+ .Carousel{
         posición: 'absoluta' , 
         pantalla: 'bloque' , 
         zIndex: - 2 , 
@@ -26,7 +26,7 @@
     aling-items:flex-start,
     text-aling:left
     background:linear-gradient
-} */
+}
 
 .carousel {
   display: flex;

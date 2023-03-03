@@ -10,7 +10,6 @@ export default function EmergenciaBoton() {
     const mailtoLink = `mailto:${destinatario}?subject=${asunto}&body=${mensaje}`;
     window.location.href = mailtoLink;
   };
-
   return (
     <>
       <div>

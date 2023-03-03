@@ -31,7 +31,7 @@ export default function Carousel() {
             <div
               style={{
                 alignItems: "center",
-                //display: "flex",
+                display: "flex",
               }}
             >
               <p
