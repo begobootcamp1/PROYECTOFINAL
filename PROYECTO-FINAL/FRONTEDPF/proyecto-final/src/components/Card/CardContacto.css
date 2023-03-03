@@ -1,6 +1,7 @@
 .Wrap {
   display: flex;
   flex-direction: column;
+  border: 10px;
 
   /*justify-content: center;
   align-items: center;
@@ -11,9 +12,8 @@
   border: 10px;
   width: 100%; 
 }
-.container {
-  /* display: flex; */
-}
+
+
 
 .imagen {
   width: 80%;
@@ -37,12 +37,13 @@
 }
 
 .tituloComentarios {
-  font-size: 8px;
+  font-size: 12px;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
 .comentario {
   text-align: center;
-  font-size: 16px;
+  font-size: 32px;
+  font-weight: bolder;
 }

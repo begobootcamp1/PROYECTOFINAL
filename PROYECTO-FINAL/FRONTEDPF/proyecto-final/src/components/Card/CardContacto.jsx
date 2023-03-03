@@ -17,7 +17,7 @@ export default function CardContacto({ datos }) {
 
       <div className="container">
         <div className="titulo">
-          <h2>{datos.nombre}</h2>
+          <h3>{datos.nombre}</h3>
         </div>
         <div className="comentarios">
           <div className="tituloComentarios">Quién es...</div>

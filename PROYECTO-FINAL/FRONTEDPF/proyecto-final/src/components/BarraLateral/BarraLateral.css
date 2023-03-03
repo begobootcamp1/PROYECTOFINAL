@@ -1,23 +1,24 @@
 .barraLateral {
   display: grid;
-  grid-template-columns: 320px;
-  grid-template-rows: 300px 90px 150px 150px;
+  grid-template-columns: 500px;
+  grid-template-rows: auto;
   /* podemos poner auto en lugar de los px de las columnas para ajustar el texto. si en columnas ponemos 1fr para cada una nos ocupará toda la página */
   gap: 1em;
   justify-items: auto;
   align-items: center;
-  background: rgb(135, 173, 135);
+  /* background: rgb(135, 173, 135); */
   padding: 0px;
-  margin: 0;
-  flex-wrap: "nowrap";
+  margin: 10px;
+  margin-right: 40px;
+  flex-wrap: "rap";
 }
 .barraLateral > div {
   background: transparent;
   padding: 1 em;
 }
-.barraLateral > div:hover {
+/* .barraLateral > div:hover {
   border: 2px solid red;
-}
+} */
 .barraLateral.Reloj {
   font-family: sans-serif;
   text-align: center;
@@ -36,18 +37,17 @@
   /* justify-items: right;
   align-items: right; */
 }
-.barraLateral.button {
+.botonLlamar {
   font-size: 25px;
   font-weight: bolder;
   text-align: center;
+  border: 2px;
   border-radius: 20%;
   background-color: red;
+  color: white;
+  padding: 8px 16px;
 }
 
-/* .right {
-  position: absolute;
-  right: 0px;
-  width: 300px;
-  border: 3px solid #73ad21;
-  padding: 10px;
+/* .boton-llamar:hover {
+  background-color: #0069d9;
 } */

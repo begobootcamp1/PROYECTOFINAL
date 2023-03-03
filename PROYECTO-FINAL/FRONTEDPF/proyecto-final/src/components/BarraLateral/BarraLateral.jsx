@@ -39,7 +39,9 @@ export default function BarraLateral() {
       </div>
       <div className="CardAdministrador">
         <CardContacto datos={datos} />
-        <button onClick={() => emergencia()}>Contacto</button>
+        <button class="botonLlamar" onClick={() => emergencia()}>
+          Llamar
+        </button>
       </div>
     </div>
   );
