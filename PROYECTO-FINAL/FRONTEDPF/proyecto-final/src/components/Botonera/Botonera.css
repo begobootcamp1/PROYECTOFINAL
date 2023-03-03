@@ -7,6 +7,7 @@
   justify-items: stretch;
   align-items: stretch;
   background: rgb(113, 113, 151);
+  position:relative ;
 }
 
 .botonera > div {
@@ -14,5 +15,6 @@
   padding: 1 em;
 }
 .botonera > div:hover {
-  border: 2px solid red;
+  border: 8px double  rgb(37, 37, 53) ;
+};
 }

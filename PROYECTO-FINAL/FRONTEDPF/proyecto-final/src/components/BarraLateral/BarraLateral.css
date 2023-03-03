@@ -32,6 +32,13 @@
 .barraLateral.CardAdministrador {
   font-family: sans-serif;
   text-align: center;
-  justify-items: stretch;
-  align-items: stretch;
+  justify-items: auto;
+  align-items: auto;
 }
+/* .right {
+  position: absolute;
+  right: 0px;
+  width: 300px;
+  border: 3px solid #73ad21;
+  padding: 10px;
+} */
