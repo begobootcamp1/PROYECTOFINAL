@@ -94,4 +94,20 @@ medicinaQueries.getMedicina = async () => {
   }
 };
 
+medicinaQueries.getMedicinaByDia = async (dia, turno) => {
+  let conn = null;
+  try {
+    conn = await db.createConection();
+    return await db.query(
+      "SELECT * FROM pastillero join medicina on pastillero.id_medicina=medicina.id WHERE dia=? and turno=?",
+      [dia, turno],
+      "select",
+      conn
+    );
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn && (await conn.end());
+  }
+};
 export default medicinaQueries;

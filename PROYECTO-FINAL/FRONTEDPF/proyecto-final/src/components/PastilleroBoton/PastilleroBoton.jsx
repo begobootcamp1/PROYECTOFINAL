@@ -3,7 +3,7 @@ import { useState } from "react";
 import Medicina from "../../../public/iconos/Medicina.jpg";
 
 export default function PastilleroBoton() {
-  const [showPastillero, setShowPastillero] = useState(false); // define state variable para controlar el popup
+  const [showPastillero, setShowPastillero] = useState(false);
 
   const handlePastilleroClick = () => {
     setShowPastillero(!showPastillero); // al hacer click el estado de la variable pasa a true

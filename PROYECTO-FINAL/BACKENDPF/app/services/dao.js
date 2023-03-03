@@ -28,6 +28,8 @@ dao.updateEvento = async (id, eventoData) =>
   await eventoQueries.updateEvento(id, eventoData);
 
 dao.getMedicina = async () => await medicinaQueries.getMedicina();
+dao.getMedicinaByDia = async (dia, turno) =>
+  await medicinaQueries.getMedicinaByDia(dia, turno);
 dao.addMedicina = async (medicinaData) =>
   await medicinaQueries.addMedicina(medicinaData);
 dao.deleteMedicina = async (id) => await medicinaQueries.deleteMedicina(id);
