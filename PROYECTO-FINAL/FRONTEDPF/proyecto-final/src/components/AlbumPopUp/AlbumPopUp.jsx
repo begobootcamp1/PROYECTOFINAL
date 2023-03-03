@@ -10,7 +10,7 @@ export default function AlbumPopup(props) {
         <button className="close-button" onClick={props.onClick}>
           Cerrar
         </button>
-        <h1>Album Fotos</h1>
+        <h1>Mis Fotos</h1>
         <Carousel />
       </div>
     </div>

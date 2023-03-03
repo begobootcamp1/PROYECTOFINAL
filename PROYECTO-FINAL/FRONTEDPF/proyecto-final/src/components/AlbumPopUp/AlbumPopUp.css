@@ -26,9 +26,16 @@
   position: absolute;
   top: 5px;
   right: 10px;
-  background-color: transparent;
-  border: none;
+  background-color: red;
+  border: 2px;
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
+}
+
+h1 {
+  font-size: 75px;
+  font-weight: bolder;
+  font-style: italic;
+  color: black;
 }

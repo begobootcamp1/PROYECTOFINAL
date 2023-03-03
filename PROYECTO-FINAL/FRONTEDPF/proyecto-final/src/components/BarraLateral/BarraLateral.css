@@ -1,10 +1,10 @@
 .barraLateral {
   display: grid;
   grid-template-columns: 320px;
-  grid-template-rows: 300px 90px 150px 200px;
+  grid-template-rows: 300px 90px 150px 150px;
   /* podemos poner auto en lugar de los px de las columnas para ajustar el texto. si en columnas ponemos 1fr para cada una nos ocupará toda la página */
   gap: 1em;
-  justify-items: stretch;
+  justify-items: auto;
   align-items: center;
   background: rgb(97, 141, 97);
   padding: 7px;
@@ -32,9 +32,17 @@
 .barraLateral.CardAdministrador {
   font-family: sans-serif;
   text-align: center;
-  justify-items: auto;
-  align-items: auto;
+  justify-items: right;
+  align-items: right;
 }
+.barraLateral.button {
+  font-size: 25px;
+  font-weight: bolder;
+  text-align: center;
+  border-radius: 20%;
+  background-color: red;
+}
+
 /* .right {
   position: absolute;
   right: 0px;

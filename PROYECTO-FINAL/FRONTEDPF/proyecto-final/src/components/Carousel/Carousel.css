@@ -1,5 +1,5 @@
- .Carousel{
-        posición: 'absoluta' , 
+/* .Carousel{
+        position: 'absolute' , 
         pantalla: 'bloque' , 
         zIndex: - 2 , 
         minHeight: '100%' , 
@@ -13,8 +13,8 @@
         MozTransitionTimingFunction: 2 , 
         WebkitTransitionTimingFunction: 2, 
         OTransitionTimingFunction: 2 
-} 
-
+}  */
+/* 
 .Carousel_caption{
     top:0,
     botton:0,
@@ -26,7 +26,7 @@
     aling-items:flex-start,
     text-aling:left
     background:linear-gradient
-}
+} */
 
 .carousel {
   display: flex;
@@ -34,12 +34,12 @@
   justify-content: center;
   position: absolute;
   width: 100%;
-  height: 400px;
+  height: 600px;
 }
 
 .carousel-item {
   position: absolute;
-  top: 0;
+  top: 200px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -49,14 +49,38 @@
   text-align: center;
 }
 
+.imagen-contenedor {
+  display: flex;
+  align-items: center;
+  /* justify-content:; */
+  height: 600px; /* altura fija para el contenedor */
+}
+
+.imagen-contenedor img {
+  max-height: 100%; /* la imagen se ajusta al alto máximo del contenedor */
+  max-width: 100%; /* la imagen se ajusta al ancho máximo del contenedor */
+  object-fit: contain; /* para evitar que la imagen se corte */
+  margin: 0 auto; /* centra la imagen horizontalmente */
+  height: auto;
+}
+
+.imagen-contenedor .legend {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding: 10px;
+}
+
 .carousel-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   font-size: 50px;
   font-weight: bold;
-  background: none;
-  border: none;
+  background: black;
+  border: 1px;
   outline: none;
   cursor: pointer;
 }

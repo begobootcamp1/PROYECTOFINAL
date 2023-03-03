@@ -27,20 +27,13 @@ export default function Carousel() {
         showThumbs={false}
       >
         {datos.map((imagen, index) => (
-          <div key={index}>
-            <div
-              style={{
-                alignItems: "center",
-                display: "flex",
-              }}
-            >
-              <p
-                style={{ fontSize: 24, textAlign: "center" }}
-                className="legend"
-              >
-                {imagen.textoImagen}
-              </p>
-            </div>
+          <div className="imagen-contenedor" key={index}>
+            <img
+              alt={`${imagen.textoImagen}`}
+              src={`http://localhost:3000/${imagen.path}`}
+              width="600px"
+            />
+            <p className="legend">{imagen.textoImagen}</p>
           </div>
         ))}
       </ReactResponsiveCarousel>
