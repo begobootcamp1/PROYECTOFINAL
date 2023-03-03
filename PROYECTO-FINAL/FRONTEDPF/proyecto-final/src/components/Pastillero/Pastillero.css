@@ -1,37 +1,12 @@
-/* const StyledTable = styled.table`
-  border-collapse: collapse;
-  width: 100%;
-`;
-
-const StyledTableRow = styled.tr`
-  border: 1px solid #ddd;
-  padding: 8px;
-`;
-
-const StyledTableHeader = styled.th`
-  border: 1px solid #ddd;
-  background-color: #f2f2f2;
-  padding: 8px;
-`;
-
-const StyledTableCell = styled.td`
-  border: 1px solid #ddd;
-  padding: 8px;
-`; */
-.tablaPastillero th td {
-  border: 1px solid;
-  width: 100%;
-  text-align: center;
+.lista {
+  columns: 7;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
-th {
-  height: 70px;
-  background-color: aqua;
-}
-th,
-td {
-  padding: 15px;
-  background-color: ;
-}
-tr:hover {
-  background-color: coral;
+
+.lista li {
+  margin: 0;
+  padding: 10px;
+  break-inside: avoid-column;
 }
