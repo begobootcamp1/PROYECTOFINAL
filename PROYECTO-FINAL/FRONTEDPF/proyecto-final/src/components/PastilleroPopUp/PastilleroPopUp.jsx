@@ -34,7 +34,16 @@ export default function PastilleroPopup(props) {
   return (
     <div className="popup">
       <div className="popup-content">
-        <div>{datos ? <CardMedicina datos={datos} /> : <p>Cargando...</p>}</div>
+        {
+          (turno = 0 ? (
+            <p>NO HAY NINGUNA MEDICINA QUE TOMAR</p>
+          ) : (
+            <div>
+              {datos ? <CardMedicina datos={datos} /> : <p>Cargando...</p>}
+            </div>
+          ))
+        }
+
         <button className="close-button" onClick={props.onClick}>
           Cerrar
         </button>

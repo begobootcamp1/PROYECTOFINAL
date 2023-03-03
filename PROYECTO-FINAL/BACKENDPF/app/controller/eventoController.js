@@ -1,5 +1,8 @@
 import dao from "../services/dao.js";
-// import { SignJWT, jwtVerify } from "jose";
+import moment from "moment";
+
+const now = moment();
+const fecha = now.format("YYYY-MM-DD");
 
 const eventoController = {};
 
@@ -48,6 +51,18 @@ eventoController.updateEvento = async (req, res) => {
       return res.status(400).send("error al recibir el body");
     await dao.updateEvento(req.params.id, req.body);
     return res.send(`Evento con id ${re.params.id} modificado`);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+eventoController.getEvento = async (req, res) => {
+  try {
+    let evento = await dao.getEvento(fecha);
+    if (evento.lenght <= 0) {
+      return res.status(404);
+    }
+    return res.send(evento);
   } catch (e) {
     console.log(e.message);
   }

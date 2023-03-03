@@ -19,6 +19,22 @@ eventoQueries.getEventobyId = async (id) => {
     conn && (await conn.end());
   }
 };
+eventoQueries.getEvento = async (fecha) => {
+  let conn = null;
+  try {
+    conn = await db.createConection();
+    return await db.query(
+      "SELECT * FROM evento WHERE fechaEvento =?",
+      fecha,
+      "select",
+      conn
+    );
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn && (await conn.end());
+  }
+};
 
 eventoQueries.addEvento = async (eventoData) => {
   let conn = null;

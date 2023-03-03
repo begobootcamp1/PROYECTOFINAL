@@ -17,7 +17,7 @@
 
 .imagen {
   width: 80%;
-  max-width: 20px;
+  max-width: 30px;
   margin: 0;
   /* object-fit:cover; */
   border-radius: 50%;
@@ -25,7 +25,7 @@
 
 .titulo {
   text-align: left;
-  margin-top: 16px;
+  margin-top: 8px;
 }
 
 .comentarios {
@@ -37,11 +37,12 @@
 }
 
 .tituloComentarios {
-  font-size: 16px;
+  font-size: 8px;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
 .comentario {
   text-align: center;
+  font-size: 16px;
 }

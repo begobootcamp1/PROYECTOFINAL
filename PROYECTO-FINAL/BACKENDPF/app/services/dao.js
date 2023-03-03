@@ -2,6 +2,7 @@ import contactoQueries from "./mysqlQueries/contactoQueries.js";
 import usuarioQueries from "./mysqlQueries/usuarioQueries.js";
 import imagenesQueries from "./mysqlQueries/imagenesQueries.js";
 import medicinaQueries from "./mysqlQueries/medicinaQueries.js";
+import eventoQueries from "./mysqlQueries/eventoQueries.js";
 
 const dao = {};
 
@@ -22,6 +23,7 @@ dao.getContacto = async () => await contactoQueries.getContacto();
 dao.getContacto3 = async () => await contactoQueries.getContacto3();
 
 dao.getEventobyId = async (id) => await eventoQueries.getEventobyId(id);
+dao.getEvento = async (fecha) => await eventoQueries.getEvento(fecha);
 dao.addEvento = async (eventoData) => await eventoQueries.addEvento(eventoData);
 dao.deleteEvento = async (id) => await eventoQueries.deleteEvento(id);
 dao.updateEvento = async (id, eventoData) =>

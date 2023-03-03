@@ -22,8 +22,8 @@ export default function CardContacto({ datos }) {
         <div className="comentarios">
           <div className="tituloComentarios">Quién es...</div>
           <div className="comentario">
-            <h1>{datos.contactoComentario}</h1>
-            <h1>{datos.telefono}</h1>
+            <p>{datos.contactoComentario}</p>
+            <p>{datos.telefono}</p>
           </div>
         </div>
       </div>
