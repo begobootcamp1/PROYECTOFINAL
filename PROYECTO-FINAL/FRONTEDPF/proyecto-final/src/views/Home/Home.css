@@ -1,2 +1,11 @@
-.Home {
+.barraYBotonera {
+  /* grid-template-columns: 20% 80%; */
+
+  /* margin-inline: 20% 80%; */
+}
+.BarraLateral {
+  width: 20%;
+}
+.Botonera {
+  width: 80%;
 }

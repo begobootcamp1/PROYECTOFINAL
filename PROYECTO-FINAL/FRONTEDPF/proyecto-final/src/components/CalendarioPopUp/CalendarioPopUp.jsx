@@ -9,7 +9,7 @@ export default function CalendarioPopup(props) {
         <button className="close-button" onClick={props.onClick}>
           Cerrar
         </button>
-        <h3>Calendario eventos</h3>
+
         <CalendarioEvento />
       </div>
     </div>

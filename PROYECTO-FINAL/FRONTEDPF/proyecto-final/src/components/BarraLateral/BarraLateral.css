@@ -6,9 +6,10 @@
   gap: 1em;
   justify-items: auto;
   align-items: center;
-  background: rgb(97, 141, 97);
-  padding: 7px;
+  background: rgb(135, 173, 135);
+  padding: 0px;
   margin: 0;
+  flex-wrap: "nowrap";
 }
 .barraLateral > div {
   background: transparent;
@@ -17,7 +18,7 @@
 .barraLateral > div:hover {
   border: 2px solid red;
 }
-.barraLateral .Reloj {
+.barraLateral.Reloj {
   font-family: sans-serif;
   text-align: center;
   justify-items: stretch;
@@ -32,8 +33,8 @@
 .barraLateral.CardAdministrador {
   font-family: sans-serif;
   text-align: center;
-  justify-items: right;
-  align-items: right;
+  /* justify-items: right;
+  align-items: right; */
 }
 .barraLateral.button {
   font-size: 25px;
