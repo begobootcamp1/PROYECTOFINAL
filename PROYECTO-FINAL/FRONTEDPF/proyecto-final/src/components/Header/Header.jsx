@@ -1,6 +1,12 @@
 import "./Header.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const navigate = useNavigate();
+
+  function admin() {
+    navigate("/administrador");
+  }
   return (
     <div className="header">
       <div>
@@ -11,7 +17,9 @@ export default function Header() {
           alt="foto"
         />
       </div>
-      <h1 className="header__title">Mi Título</h1>
+      <h1 className="header__title">
+        <button onClick={() => admin()}> Mi Título</button>
+      </h1>
     </div>
   );
 }

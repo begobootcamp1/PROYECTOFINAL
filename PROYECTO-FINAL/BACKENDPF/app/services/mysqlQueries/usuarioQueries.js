@@ -28,7 +28,6 @@ usuarioQueries.addUsuario = async (usuarioData) => {
       nombre: usuarioData.nombre,
       telefono: usuarioData.telefono,
       fechaNacimiento: usuarioData.fechaNacimiento,
-      //password: md5(userData.password), //ponemos md5 para codificar
       fotoUsuario: usuarioData.fotoUsuario,
       rol: usuarioData.rol,
     };

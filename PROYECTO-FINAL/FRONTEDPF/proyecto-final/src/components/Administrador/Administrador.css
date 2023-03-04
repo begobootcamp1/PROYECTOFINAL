@@ -1,0 +1,44 @@
+.tabla-administrador {
+  display: block;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: transparent;
+}
+
+th,
+td {
+  text-align: right;
+  padding: 8px;
+  color: black;
+}
+
+th {
+  background-color: #ddd;
+  font-weight: bold;
+}
+/* 
+td {
+  display: block;
+} */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.agregar,
+.eliminar {
+  border: none;
+  background-color: white;
+  font-size: 1.2rem;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.agregar:hover,
+.eliminar:hover {
+  color: #666;
+}

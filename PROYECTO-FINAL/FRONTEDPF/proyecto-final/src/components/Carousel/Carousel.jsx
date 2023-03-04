@@ -33,7 +33,7 @@ export default function Carousel() {
               src={`http://localhost:3000/${imagen.path}`}
               width="600px"
             />
-            <p className="legend">{imagen.textoImagen}</p>
+            <h2 className="legend">{imagen.textoImagen}</h2>
           </div>
         ))}
       </ReactResponsiveCarousel>

@@ -27,9 +27,10 @@ contactoQueries.addContacto = async (contactoData) => {
     let contactoObj = {
       nombre: contactoData.nombre,
       telefono: contactoData.telefono,
+      parentesco: contactoData.parentesco,
       fechaNacimiento: contactoData.fechaNacimiento,
       fotoContacto: contactoData.fotoContacto,
-      rol: contactoData.rol,
+      comentario: contactoData.contactoComentario,
     };
     return await db.query(
       "INSERT INTO contacto SET?",
