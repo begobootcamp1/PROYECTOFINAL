@@ -16,6 +16,13 @@ export default function Administrador(props) {
     fotoContacto: "",
     contactoComentario: "",
   });
+  const [medicina, setMedicina] = useState([]);
+  const [nuevaMedicina, setNuevaMedicina] = useState();
+  const [nuevoMedicamento, setNuevoMedicamento] = useState({
+    indicacion: "",
+    nombreMedicina: "",
+    fotoMedicina: "",
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -76,7 +83,23 @@ export default function Administrador(props) {
 
     onSubmit,
   });
-
+  function administradorMedicina() {
+    function handleMedicina(e) {
+      const añadirMedicina = {
+        ...nuevaMedicina,
+        [e.target.name]: e.target.value,
+      };
+      setNuevaMedicina(añadirMedicina);
+    }
+  }
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("http://localhost:3000/medicina/medicina");
+      let jsonData = await response.json();
+      setMedicina(jsonData);
+    };
+    fetchData();
+  }, []);
   return (
     <>
       <div className="tabla-administrador">
@@ -171,141 +194,68 @@ export default function Administrador(props) {
           </button>
         </form>
       </div>
+      <div className="tabla-medicina">
+        <table>
+          <thead>
+            <tr>
+              <th>Indicación</th>
+              <th>Foto</th>
+              <th>NombreMedicina</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {medicina &&
+                medicina.map((medicina) => (
+                  <>
+                    <td>{medicina.indicacion}</td>
+                    <td>{medicina.fotoMedicina}</td>
+                    <td>{medicina.nombreMedicina}</td>
+                    <td>
+                      <button className="borrar">Borrar</button>
+                    </td>
+                  </>
+                ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h2> FORMULARIO MEDICINAS </h2>
+      <div>
+        <form onSubmit={(e) => agregar(e)}>
+          <label>Indicación</label>
+          <input
+            type="text"
+            name="indicacion"
+            onChange={(e) => handleMedicina(e)}
+            value={nuevoMedicamento.indicacion}
+          />
+
+          <label>fotoMedicina</label>
+          <input
+            type="file"
+            name="fotoMedicina"
+            onChange={(e) => handleMedicina(e)}
+            value={nuevoMedicamento.fotoMedicina}
+          />
+
+          <label>nombreMedicina</label>
+          <input
+            type="text"
+            name="nombreMedicina"
+            onChange={(e) => handleMedicina(e)}
+            value={nuevoMedicamento.nombreMedicina}
+          />
+
+          <button type="submit" className="agregar">
+            Agregar Medicina
+          </button>
+        </form>
+      </div>
       <div>
         <button onClick={() => salir()}>Salir</button>
       </div>
-      ;
     </>
   );
-
-  // function administradorMedicina() {
-  //   const [medicina, setMedicina] = useState([]);
-  //   const [nuevaMedicina, setNuevaMedicina] = useState();
-  //   const navigate = useNavigate();
-  //   const [nuevoMedicamento, setNuevoMedicamento] = useState({
-  //     indicacion: "",
-  //     nombreMedicina: "",
-  //     fotoMedicina: "",
-  //   });
-
-  //   function handleMedicina(e) {
-  //     const añadirMedicina = {
-  //       ...nuevaMedicina,
-  //       [e.target.name]: e.target.value,
-  //     };
-  //     setNuevaMedicina(añadirMedicina);
-  //   }
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //       const response = await fetch("http://localhost:3000/medicina/medicina");
-  //       let jsonData = await response.json();
-  //       setMedicina(jsonData);
-  //     };
-  //     fetchData();
-  //   }, []);
-  //   function salir() {
-  //     navigate("/");
-  //   }
-
-  //   async function agregar(e) {
-  //     e.preventDefault();
-  //     const añadirMedicina = {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify(nuevoMedicamento),
-  //     };
-  //     //coger la url del post
-
-  //     const response = await fetch(URL, añadirMedicina);
-  //     setNuevoMedicamento({
-  //       indicacion: "",
-  //       fotoMedicna: "",
-  //       nombreMedicina: "",
-  //     });
-  //   }
-
-  //   //FUNCION ELIMINAR Y FUNCIÓN EDITAR, CON EL URL DEL DELETE
-
-  //   return (
-  //     <>
-  //       <div className="tabla-medicina">
-  //         <table>
-  //           <thead>
-  //             <tr>
-  //               <th>Indicación</th>
-  //               <th>Foto</th>
-  //               <th>NombreMedicina</th>
-  //               <th>Acciones</th>
-  //             </tr>
-  //           </thead>
-  //           <tbody>
-  //             <tr>
-  //               {medicina.map((medicina) => (
-  //                 <>
-  //                   <td>{medicina.indicacion}</td>
-  //                   <td>{medicina.fotoMedicina}</td>
-  //                   <td>{medicina.nombreMedicina}</td>
-  //                   <td>
-  //                     <button className="borrar">Borrar</button>
-  //                   </td>
-  //                 </>
-  //               ))}
-  //             </tr>
-  //           </tbody>
-  //         </table>
-  //       </div>
-
-  //       <h2> FORMULARIO MEDICINAS </h2>
-  //       <>
-  //         <div>
-  //           <form onSubmit={(e) => agregar(e)}>
-  //             <label>Indicación</label>
-  //             <input
-  //               type="text"
-  //               name="indicacion"
-  //               onChange={(e) => handleMedicina(e)}
-  //               value={nuevoMedicamento.indicacion}
-  //             />
-
-  //             <label>fotoMedicina</label>
-  //             <input
-  //               type="file"
-  //               name="fotoMedicina"
-  //               onChange={(e) => handleMedicina(e)}
-  //               value={nuevoMedicamento.fotoMedicina}
-  //             />
-
-  //             <label>nombreMedicina</label>
-  //             <input
-  //               type="text"
-  //               name="nombreMedicina"
-  //               onChange={(e) => handleMedicina(e)}
-  //               value={nuevoMedicamento.nombreMedicina}
-  //             />
-
-  //             <button type="submit" className="agregar">
-  //               Agregar Medicina
-  //             </button>
-  //           </form>
-  //         </div>
-  //       </>
-
-  //   );
-  // }
-
-  // //FUNCION ELIMINAR Y FUNCIÓN EDITAR, CON EL URL DEL DELETE
-
-  // return (
-  //
-  // );
-
-  // <h2> FORMULARIO CONTACTOS </h2>;
 }
-
-// <h2> FORMULARIO IMÁGENES </h2>
-// <div>
-//   <button type="submit" className="agregar">
-//     Agregar imagen
-//   </button>
-// </div>
-// <br />
