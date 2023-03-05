@@ -12,33 +12,45 @@ table {
 
 th,
 td {
-  text-align: right;
+  text-align: center;
   padding: 8px;
   color: black;
 }
 
 th {
   background-color: #ddd;
-  font-weight: bold;
+  font-weight: bolder;
+  font-size: larger;
 }
-/* 
-td {
-  display: block;
-} */
+
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
 .agregar,
-.eliminar {
-  border: none;
+.editar,
+.borrar {
+  border-style: double;
+  border-color: black;
+  border-radius: 10%;
   background-color: white;
   font-size: 1.2rem;
+  font-weight: bold;
   margin-right: 10px;
   cursor: pointer;
 }
 
 .agregar:hover,
-.eliminar:hover {
+.borrar:hover,
+.editar:hover {
   color: #666;
+}
+
+form label,
+form input {
+  display: block;
+  margin-bottom: 10px; /* para agregar un poco de espacio entre cada label y input */
+  font-size: larger;
+  font-weight: bolder;
+  font-weight: 3px;
 }

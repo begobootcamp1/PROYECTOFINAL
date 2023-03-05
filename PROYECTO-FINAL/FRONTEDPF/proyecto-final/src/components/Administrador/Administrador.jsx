@@ -102,6 +102,7 @@ export default function Administrador(props) {
   }, []);
   return (
     <>
+      <h1> FORMULARIO CONTACTO </h1>
       <div className="tabla-administrador">
         <table>
           <thead>
@@ -194,6 +195,9 @@ export default function Administrador(props) {
           </button>
         </form>
       </div>
+
+      <h1> FORMULARIO MEDICINAS </h1>
+
       <div className="tabla-medicina">
         <table>
           <thead>
@@ -205,47 +209,44 @@ export default function Administrador(props) {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              {medicina &&
-                medicina.map((medicina) => (
-                  <>
-                    <td>{medicina.indicacion}</td>
-                    <td>{medicina.fotoMedicina}</td>
-                    <td>{medicina.nombreMedicina}</td>
-                    <td>
-                      <button className="borrar">Borrar</button>
-                    </td>
-                  </>
-                ))}
-            </tr>
+            {medicina.map((medicina) => (
+              <tr>
+                <td>{medicina.indicacion}</td>
+                <td>{medicina.fotoMedicina}</td>
+                <td>{medicina.nombreMedicina}</td>
+                <td>
+                  <button className="borrar">Borrar</button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
-      <h2> FORMULARIO MEDICINAS </h2>
+
       <div>
-        <form onSubmit={(e) => agregar(e)}>
+        <form onSubmit={handleSubmit}>
           <label>Indicación</label>
           <input
             type="text"
             name="indicacion"
-            onChange={(e) => handleMedicina(e)}
-            value={nuevoMedicamento.indicacion}
+            // onChange={(e) => handleMedicina(e)}
+            // value={nuevoMedicamento.indicacion}
           />
 
           <label>fotoMedicina</label>
           <input
             type="file"
             name="fotoMedicina"
-            onChange={(e) => handleMedicina(e)}
-            value={nuevoMedicamento.fotoMedicina}
+            // onChange={(e) => handleMedicina(e)}
+            // value={nuevoMedicamento.fotoMedicina}
           />
 
           <label>nombreMedicina</label>
           <input
             type="text"
             name="nombreMedicina"
-            onChange={(e) => handleMedicina(e)}
-            value={nuevoMedicamento.nombreMedicina}
+            // onChange={(e) => handleMedicina(e)}
+            // value={nuevoMedicamento.nombreMedicina}
           />
 
           <button type="submit" className="agregar">
