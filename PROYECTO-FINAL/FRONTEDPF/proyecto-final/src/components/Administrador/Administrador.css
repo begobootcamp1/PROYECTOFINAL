@@ -18,31 +18,43 @@ td {
 }
 
 th {
-  background-color: #ddd;
+  background-color: rgb(115, 54, 168);
   font-weight: bolder;
-  font-size: larger;
+  font-size: 40px;
 }
 
+td {
+  font-size: 32px;
+}
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
 .agregar,
 .editar,
-.borrar {
+.borrar,
+.salir {
   border-style: double;
   border-color: black;
   border-radius: 10%;
-  background-color: white;
-  font-size: 1.2rem;
+  background-color: rgb(115, 54, 168);
+  font-size: 24px;
   font-weight: bold;
   margin-right: 10px;
   cursor: pointer;
 }
+.salir {
+  font-size: 40px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+}
 
 .agregar:hover,
 .borrar:hover,
-.editar:hover {
+.editar:hover,
+.salir:hover {
   color: #666;
 }
 
@@ -50,7 +62,15 @@ form label,
 form input {
   display: block;
   margin-bottom: 10px; /* para agregar un poco de espacio entre cada label y input */
-  font-size: larger;
+}
+form label {
+  font-size: 32px;
   font-weight: bolder;
+  font-weight: 3px;
+}
+
+form input {
+  font-size: 28px;
+  font-weight: bol;
   font-weight: 3px;
 }

@@ -134,6 +134,7 @@ export default function Administrador(props) {
           </tbody>
         </table>
       </div>
+      <br />
       <div>
         <form onSubmit={handleSubmit}>
           <label>nombre</label>
@@ -189,7 +190,7 @@ export default function Administrador(props) {
             value={values.contactoComentario}
             onBlur={handleBlur}
           />
-
+          <br />
           <button disabled={isSubmitting} type="submit" className="agregar">
             Agregar Contacto
           </button>
@@ -222,7 +223,7 @@ export default function Administrador(props) {
           </tbody>
         </table>
       </div>
-
+      <br />
       <div>
         <form onSubmit={handleSubmit}>
           <label>Indicación</label>
@@ -248,14 +249,17 @@ export default function Administrador(props) {
             // onChange={(e) => handleMedicina(e)}
             // value={nuevoMedicamento.nombreMedicina}
           />
-
+          <br />
           <button type="submit" className="agregar">
             Agregar Medicina
           </button>
         </form>
       </div>
+      <br />
       <div>
-        <button onClick={() => salir()}>Salir</button>
+        <button className="salir" onClick={() => salir()}>
+          Salir
+        </button>
       </div>
     </>
   );
