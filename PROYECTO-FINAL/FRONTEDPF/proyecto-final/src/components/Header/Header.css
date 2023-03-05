@@ -14,9 +14,12 @@
   margin-right: 20px;
 }
 
-.header__title {
+.botonTitulo {
   font-size: 80px;
   font-weight: bold;
   font-style: italic;
+  color: white;
   margin: 0;
+  border: none;
+  background: transparent;
 }

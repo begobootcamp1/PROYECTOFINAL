@@ -20,21 +20,21 @@ contactoQueries.getContactobyId = async (id) => {
   }
 };
 
-contactoQueries.addContacto = async (contactoData) => {
+contactoQueries.addContacto = async (contacto) => {
   let conn = null;
   try {
     conn = await db.createConection();
-    let contactoObj = {
-      nombre: contactoData.nombre,
-      telefono: contactoData.telefono,
-      parentesco: contactoData.parentesco,
-      fechaNacimiento: contactoData.fechaNacimiento,
-      fotoContacto: contactoData.fotoContacto,
-      comentario: contactoData.contactoComentario,
-    };
+    // let contactoObj = {
+    //   nombre: contacto.nombre,
+    //   telefono: contacto.telefono,
+    //   parentesco: contacto.parentesco,
+    //   fechaNacimiento: contacto.fechaNacimiento,
+    //   fotoContacto: contacto.fotoContacto,
+    //   comentario: contacto.contactoComentario,
+    // };
     return await db.query(
-      "INSERT INTO contacto SET?",
-      contactoObj,
+      "INSERT INTO bbddproyectofinal.contacto SET ?",
+      contacto,
       "insert",
       conn
     );

@@ -14,8 +14,8 @@ dao.updateUsuario = async (id, usuarioData) =>
   await usuarioQueries.updateUsuario(id, usuarioData);
 
 dao.getContactobyId = async (id) => await contactoQueries.getContactobyId(id);
-dao.addContacto = async (contactoData) =>
-  await contactoQueries.addContacto(contactoData);
+dao.addContacto = async (contacto) =>
+  await contactoQueries.addContacto(contacto);
 dao.deleteContacto = async (id) => await contactoQueries.deleteContacto(id);
 dao.updateContacto = async (id, contactoData) =>
   await contactoQueries.updateContacto(id, contactoData);

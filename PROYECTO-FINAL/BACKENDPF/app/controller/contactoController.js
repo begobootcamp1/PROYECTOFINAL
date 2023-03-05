@@ -3,16 +3,32 @@ import dao from "../services/dao.js";
 const contactoController = {};
 
 contactoController.addContacto = async (req, res) => {
-  const { nombre, fechaNacimiento, telefono, rol, fotoContacto } = req.body;
-  if (!nombre || !fechaNacimiento || !telefono || !rol || !fotoContacto)
+  const { nombre, fechaNacimiento, telefono, parentesco, contactoComentario } =
+    req.body;
+  if (
+    !nombre ||
+    !fechaNacimiento ||
+    !telefono ||
+    !parentesco ||
+    !contactoComentario
+  )
     return res.status(400).send("Error al recibir el body");
   try {
-    const contacto = await dao.getContactobyId(id);
+    const contacto = await dao.addContacto();
     if (contacto.length > 0)
       return res.status(409).send("contacto ya registrado");
     const addContacto = await dao.addContacto(req.body);
     if (addContacto)
       return res.send(`Contacto ${nombre} con id:${addContacto} registrado`);
+    let contactoObj = {
+      nombre: nombre,
+      telefono: telefono,
+      parentesco: parentesco,
+      fechaNacimiento: fechaNacimiento,
+      fotoContacto: fotoContacto,
+      contactoComentario: contactoComentario,
+    };
+    addContacto = await dao.addContacto(contactoObj, contacto.addContacto);
   } catch (e) {
     console.log(e.message);
   }

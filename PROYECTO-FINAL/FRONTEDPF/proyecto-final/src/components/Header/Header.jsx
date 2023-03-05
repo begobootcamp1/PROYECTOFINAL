@@ -18,7 +18,10 @@ export default function Header() {
         />
       </div>
       <h1 className="header__title">
-        <button onClick={() => admin()}> Mi Título</button>
+        <button className="botonTitulo" onClick={() => admin()}>
+          {" "}
+          My Mind
+        </button>
       </h1>
     </div>
   );
