@@ -24,16 +24,9 @@ contactoQueries.addContacto = async (contacto) => {
   let conn = null;
   try {
     conn = await db.createConection();
-    // let contactoObj = {
-    //   nombre: contacto.nombre,
-    //   telefono: contacto.telefono,
-    //   parentesco: contacto.parentesco,
-    //   fechaNacimiento: contacto.fechaNacimiento,
-    //   fotoContacto: contacto.fotoContacto,
-    //   comentario: contacto.contactoComentario,
-    // };
+
     return await db.query(
-      "INSERT INTO bbddproyectofinal.contacto SET ?",
+      "INSERT INTO contacto SET ?",
       contacto,
       "insert",
       conn

@@ -2,9 +2,9 @@ import React from "react";
 import "./Administrador.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
 
 export default function Administrador(props) {
-    function administradorContacto(){
   const [usuario, setUsuario] = useState([]);
   const [nuevoContacto, setNuevoContacto] = useState();
   const navigate = useNavigate();
@@ -13,14 +13,10 @@ export default function Administrador(props) {
     telefono: "",
     parentesco: "",
     fechaNacimiento: "",
-    foto: "",
-    comentario: "",
+    fotoContacto: "",
+    contactoComentario: "",
   });
 
-  function handleUsuario(e) {
-    const añadirUsuario = { ...nuevoUsuario, [e.target.name]: e.target.value };
-    setNuevoUsuario(añadirUsuario);
-  }
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch("http://localhost:3000/contacto/contactos");
@@ -29,34 +25,61 @@ export default function Administrador(props) {
     };
     fetchData();
   }, []);
+
   function salir() {
     navigate("/");
   }
 
-  async function agregar(e) {
-    e.preventDefault();
-    const añadirContacto = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(nuevoContacto),
-    };
-    //coger la url del post
+  async function onSubmit(values) {
+    console.log(values);
+    let formData = new FormData();
+    formData.append("fotoContacto", values.fotoContacto);
+    formData.append("nombre", values.nombre);
+    formData.append("parentesco", values.parentesco);
+    formData.append("fechaNacimiento", values.fechaNacimiento);
+    formData.append("contactoComentario", values.contactoComentario);
+    formData.append("telefono", values.telefono);
+    try {
+      const response = await fetch(`http://localhost:3000/contacto`, {
+        method: "POST",
+        body: formData,
+      });
+      const newUsuarios = await response.json();
+      setUsuario(newUsuarios);
 
-    const response = await fetch(URL, añadirContacto);
-    setNuevoUsuario({
+      if (response.status === 200) {
+        alert("Usuario creado correctamente");
+      }
+    } catch (e) {
+      console.log(e);
+    }
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    actions.resetForm();
+  }
+
+  const {
+    values,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    setFieldValue,
+    isSubmitting,
+  } = useFormik({
+    initialValues: {
       nombre: "",
       telefono: "",
       parentesco: "",
       fechaNacimiento: "",
-      foto: "",
-      comentario: "",
-    });
-  }
+      fotoContacto: "",
+      contactoComentario: "",
+    },
 
-  //FUNCION ELIMINAR Y FUNCIÓN EDITAR, CON EL URL DEL DELETE
+    onSubmit,
+  });
 
   return (
-    <>      <div className="tabla-administrador">
+    <>
+      <div className="tabla-administrador">
         <table>
           <thead>
             <tr>
@@ -70,221 +93,214 @@ export default function Administrador(props) {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              {usuario.map((contacto) => (
-                <>
-                  <td>{contacto.nombre}</td>
-                  <td>{contacto.telefono}</td>
-                  <td>{contacto.parentesco}</td>
-                  <td>{contacto.fechaNacimiento}</td>
-                  <td>{contacto.fotoContacto}</td>
-                  <td>{contacto.contactoComentario}</td>
-                  <td>
-                    <button className="editar">Editar</button>
-                    <button className="borrar">Borrar</button>
-                  </td>
-                    </tr>
-          </tbody>
-        </table>
-              )}
-      </div>
-
-
-      
-      <h2> FORMULARIO CONTACTOS </h2>
-      <>
-        <div>
-          <form onSubmit={(e) => agregar(e)}>
-            <label>nombre</label>
-            <input
-              type="text"
-              name="nombre"
-              onChange={handleUsuario}
-              value={nuevoUsuario.nombre}
-            />
-            <label>telefono</label>
-            <input
-              type="number"
-              name="telefono"
-              onChange={handleUsuario}
-              value={nuevoUsuario.telefono}
-            />
-
-            <label>parentesco</label>
-            <input
-              type="text"
-              name="parentesco"
-              onChange={handleUsuario}
-              value={nuevoUsuario.parentesco}
-            />
-
-            <label>fechaNacimiento</label>
-            <input
-              type="text"
-              name="fechaNacimiento"
-              onChange={handleUsuario}
-              value={nuevoUsuario.fechaNacimiento}
-            />
-
-            <label>fotoContacto</label>
-            <input
-              type="file"
-              name="fotoContacto"
-              onChange={handleUsuario}
-              value={nuevoUsuario.fotoContacto}
-            />
-
-            <label>contactoComentario</label>
-            <input
-              type="text"
-              name="contactoComentario"
-              onChange={handleUsuario}
-              value={nuevoUsuario.contactoComentario}
-            />
-
-            <button type="submit" className="agregar">
-              Agregar Contacto
-            </button>
-          </form>
-        </div>
-      </>
-      
-AdministradorContacto();
-      
-
-
-
-
-function administradorMedicina(){
-    function administradorMedicina(){
-  const [medicina, setMedicina] = useState([]);
-  const [nuevaMedicina, setNuevaMedicina] = useState();
-  const navigate = useNavigate();
-  const [nuevoMedicamento, setNuevoMedicamento] = useState({
-    indicacion: "",
-    nombreMedicina: "",
-    fotoMedicina: "",
-  });
-
-  function handleMedicina(e) {
-    const añadirMedicina = { ...nuevaMedicina, [e.target.name]: e.target.value };
-    setNuevaMedicina(añadirMedicina);
-  }
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("http://localhost:3000/medicina/medicina");
-      let jsonData = await response.json();
-      setMedicina(jsonData);
-    };
-    fetchData();
-  }, []);
-  function salir() {
-    navigate("/");
-  }
-
-  async function agregar(e) {
-    e.preventDefault();
-    const añadirMedicina = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(nuevoMedicamento),
-    };
-    //coger la url del post
-
-    const response = await fetch(URL, añadirMedicina);
-    setNuevoMedicamento({
-      indicacion: "",
-      fotoMedicna: "",
-      nombreMedicina: "",
-          });
-  }
-
-  //FUNCION ELIMINAR Y FUNCIÓN EDITAR, CON EL URL DEL DELETE
-
-  return (
-    <>
-      <div className="tabla-medicina">
-        <table>
-          <thead>
-            <tr>
-              <th>Indicación</th>
-              <th>Foto</th>
-              <th>NombreMedicina</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              {medicina.map((medicina) => (
-                <>
-                  <td>{medicina.indicacion}</td>
-                  <td>{medicina.fotoMedicina}</td>
-                  <td>{medicina.nombreMedicina}</td>
-                  <td>
-                    
-                    <button className="borrar">Borrar</button>
-                  </td>
-                </>
-              ))}
-            </tr>
+            {usuario.map((contacto) => (
+              <tr>
+                <td>{contacto.nombre}</td>
+                <td>{contacto.telefono}</td>
+                <td>{contacto.parentesco}</td>
+                <td>{contacto.fechaNacimiento.split("T")[0]}</td>
+                <td>{contacto.fotoContacto}</td>
+                <td>{contacto.contactoComentario}</td>
+                <td>
+                  <button className="editar">Editar</button>
+                  <button className="borrar">Borrar</button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <label>nombre</label>
+          <input
+            type="text"
+            name="nombre"
+            onChange={handleChange}
+            value={values.nombre}
+            onBlur={handleBlur}
+          />
+          <label>telefono</label>
+          <input
+            type="number"
+            name="telefono"
+            onChange={handleChange}
+            value={values.telefono}
+            onBlur={handleBlur}
+          />
 
-      <h2> FORMULARIO MEDICINAS </h2>
-      <>
-        <div>
-          <form onSubmit={(e) => agregar(e)}>
-            <label>Indicación</label>
-            <input
-              type="text"
-              name="indicacion"
-              onChange={handleMedicina}
-              value={nuevoMedicamento.indicacion}
-            />
-            
+          <label>parentesco</label>
+          <input
+            type="text"
+            name="parentesco"
+            onChange={handleChange}
+            value={values.parentesco}
+            onBlur={handleBlur}
+          />
 
-            <label>fotoMedicina</label>
-            <input
-              type="file"
-              name="fotoMedicina"
-              onChange={handleMedicina}
-              value={nuevoMedicamento.fotoMedicina}
-            />
+          <label>fechaNacimiento</label>
+          <input
+            type="text"
+            name="fechaNacimiento"
+            onChange={handleChange}
+            value={values.fechaNacimiento}
+            onBlur={handleBlur}
+          />
 
-            <label>nombreMedicina</label>
-            <input
-              type="text"
-              name="nombreMedicina"
-              onChange={handleMedicina}
-              value={nuevoMedicamento.nombreMedicina}
-            />
+          <label>fotoContacto</label>
+          <input
+            type="file"
+            accept="image/*"
+            name="fotoContacto"
+            onChange={(e) => setFieldValue("fotoContacto", e.target.files[0])}
+            value={undefined}
+            onBlur={handleBlur}
+          />
 
-            <button type="submit" className="agregar">
-              Agregar Medicina
-            </button>
-          </form>
-        </div>
-      </>
-      
-administradorMedicina();
-      
+          <label>contactoComentario</label>
+          <input
+            type="text"
+            name="contactoComentario"
+            onChange={handleChange}
+            value={values.contactoComentario}
+            onBlur={handleBlur}
+          />
 
-
-
-
-
+          <button disabled={isSubmitting} type="submit" className="agregar">
+            Agregar Contacto
+          </button>
+        </form>
+      </div>
       <div>
         <button onClick={() => salir()}>Salir</button>
       </div>
+      ;
     </>
   );
+
+  // function administradorMedicina() {
+  //   const [medicina, setMedicina] = useState([]);
+  //   const [nuevaMedicina, setNuevaMedicina] = useState();
+  //   const navigate = useNavigate();
+  //   const [nuevoMedicamento, setNuevoMedicamento] = useState({
+  //     indicacion: "",
+  //     nombreMedicina: "",
+  //     fotoMedicina: "",
+  //   });
+
+  //   function handleMedicina(e) {
+  //     const añadirMedicina = {
+  //       ...nuevaMedicina,
+  //       [e.target.name]: e.target.value,
+  //     };
+  //     setNuevaMedicina(añadirMedicina);
+  //   }
+  //   useEffect(() => {
+  //     const fetchData = async () => {
+  //       const response = await fetch("http://localhost:3000/medicina/medicina");
+  //       let jsonData = await response.json();
+  //       setMedicina(jsonData);
+  //     };
+  //     fetchData();
+  //   }, []);
+  //   function salir() {
+  //     navigate("/");
+  //   }
+
+  //   async function agregar(e) {
+  //     e.preventDefault();
+  //     const añadirMedicina = {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify(nuevoMedicamento),
+  //     };
+  //     //coger la url del post
+
+  //     const response = await fetch(URL, añadirMedicina);
+  //     setNuevoMedicamento({
+  //       indicacion: "",
+  //       fotoMedicna: "",
+  //       nombreMedicina: "",
+  //     });
+  //   }
+
+  //   //FUNCION ELIMINAR Y FUNCIÓN EDITAR, CON EL URL DEL DELETE
+
+  //   return (
+  //     <>
+  //       <div className="tabla-medicina">
+  //         <table>
+  //           <thead>
+  //             <tr>
+  //               <th>Indicación</th>
+  //               <th>Foto</th>
+  //               <th>NombreMedicina</th>
+  //               <th>Acciones</th>
+  //             </tr>
+  //           </thead>
+  //           <tbody>
+  //             <tr>
+  //               {medicina.map((medicina) => (
+  //                 <>
+  //                   <td>{medicina.indicacion}</td>
+  //                   <td>{medicina.fotoMedicina}</td>
+  //                   <td>{medicina.nombreMedicina}</td>
+  //                   <td>
+  //                     <button className="borrar">Borrar</button>
+  //                   </td>
+  //                 </>
+  //               ))}
+  //             </tr>
+  //           </tbody>
+  //         </table>
+  //       </div>
+
+  //       <h2> FORMULARIO MEDICINAS </h2>
+  //       <>
+  //         <div>
+  //           <form onSubmit={(e) => agregar(e)}>
+  //             <label>Indicación</label>
+  //             <input
+  //               type="text"
+  //               name="indicacion"
+  //               onChange={(e) => handleMedicina(e)}
+  //               value={nuevoMedicamento.indicacion}
+  //             />
+
+  //             <label>fotoMedicina</label>
+  //             <input
+  //               type="file"
+  //               name="fotoMedicina"
+  //               onChange={(e) => handleMedicina(e)}
+  //               value={nuevoMedicamento.fotoMedicina}
+  //             />
+
+  //             <label>nombreMedicina</label>
+  //             <input
+  //               type="text"
+  //               name="nombreMedicina"
+  //               onChange={(e) => handleMedicina(e)}
+  //               value={nuevoMedicamento.nombreMedicina}
+  //             />
+
+  //             <button type="submit" className="agregar">
+  //               Agregar Medicina
+  //             </button>
+  //           </form>
+  //         </div>
+  //       </>
+
+  //   );
+  // }
+
+  // //FUNCION ELIMINAR Y FUNCIÓN EDITAR, CON EL URL DEL DELETE
+
+  // return (
+  //
+  // );
+
+  // <h2> FORMULARIO CONTACTOS </h2>;
 }
-
-}
-
-
-
 
 // <h2> FORMULARIO IMÁGENES </h2>
 // <div>

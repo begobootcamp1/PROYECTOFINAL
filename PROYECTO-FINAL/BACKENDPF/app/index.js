@@ -8,7 +8,7 @@ import contactoRouter from "./routes/contactoRoute.js";
 import medicinaRouter from "./routes/medicinaRoute.js";
 import eventoRouter from "./routes/eventoRoute.js";
 import imagenesRouter from "./routes/imagenesRoute.js";
-// import fileUpload from "express-fileupload";
+import fileUpload from "express-fileupload";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 
@@ -31,15 +31,15 @@ app.use(express.text());
 app.use(logger("dev"));
 app.use(cookieParser());
 app.use(cors());
-// app.use(
-//   fileUpload({
-//     createParentPath: true,
-//     limits: { fileSize: 20 * 1024 * 1024 },
-//     abortOnLimit: "Imagen demasiado grande",
-//     uploadTimeout: 0,
-//   })
-// );
 app.use(express.static(join(__dirname, "public")));
+app.use(
+  fileUpload({
+    createParentPath: true,
+    limits: { fileSize: 20 * 1024 * 1024 },
+    abortOnLimit: "Imagen demasiado grande",
+    uploadTimeout: 0,
+  })
+);
 
 //----api middlewares-----
 app.use("/usuario", usuarioRouter);
