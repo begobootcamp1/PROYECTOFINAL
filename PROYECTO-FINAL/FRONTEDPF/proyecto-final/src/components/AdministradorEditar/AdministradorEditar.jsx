@@ -110,7 +110,7 @@ export default function AdministradorEditar({
             value={values.contactoComentario}
             onBlur={handleBlur}
           />
-          <button type="submit" onClick={onSubmit}>
+          <button className="aceptarCambios" type="submit" onClick={onSubmit}>
             Aceptar cambios
           </button>
         </form>

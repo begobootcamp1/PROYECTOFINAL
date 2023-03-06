@@ -1,8 +1,10 @@
 .botonera {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr); */
   /* podemos poner auto en lugar de los px de las columnas para ajustar el texto. si en columnas ponemos 1fr para cada una nos ocupará toda la página */
+  display: flex;
+  flex-direction: column;
   gap: 1em;
   justify-items: stretch;
   align-items: stretch;
@@ -11,9 +13,25 @@
 }
 
 .botonera > div {
-  background: white;
-  padding: 1 em;
+  /* background: white; */
+  /* padding: 1 em; */
+  display: flex;
+  gap: 1em;
 }
-.botonera > div:hover {
+/* .botonera > div:hover {
   border: 8px double rgb(37, 37, 53);
+} */
+
+button {
+  padding: 1em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button img {
+  width: 100%;
 }

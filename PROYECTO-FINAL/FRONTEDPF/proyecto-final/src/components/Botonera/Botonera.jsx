@@ -11,20 +11,20 @@ export default function Botonera() {
     <div className="botonera">
       <div>
         <EmergenciaBoton />
-      </div>
-      <div>
+        {/* </div>
+      <div> */}
         <PastilleroBoton />
-      </div>
-      <div>
+        {/* </div>
+      <div> */}
         <AlbumBoton />
       </div>
       <div>
         <CalendarioBoton />
-      </div>
-      <div>
+        {/* </div>
+      <div> */}
         <ContactoBoton />
-      </div>
-      <div>
+        {/* </div>
+      <div> */}
         <MusicaBoton />
       </div>
     </div>

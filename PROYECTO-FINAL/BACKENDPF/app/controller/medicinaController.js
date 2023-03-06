@@ -67,6 +67,7 @@ medicinaController.getMedicina = async (req, res) => {
 
 medicinaController.getMedicinaByDia = async (req, res) => {
   const { dia, turno } = req.params;
+  console.log(dia, turno);
   try {
     let medicina = await dao.getMedicinaByDia(dia, turno);
     return res.send(medicina);
