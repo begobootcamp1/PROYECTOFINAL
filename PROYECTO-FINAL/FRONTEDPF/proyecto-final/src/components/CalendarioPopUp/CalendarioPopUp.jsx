@@ -20,9 +20,9 @@ export default function CalendarioPopup(props) {
           Cerrar
         </button>
         {datos ? (
-          datos.map((dato) => <p>{dato.nombreEvento}</p>)
+          datos.map((dato) => <h1>{dato.nombreEvento}</h1>)
         ) : (
-          <p>No hay eventos hoy</p>
+          <h1>No hay eventos hoy</h1>
         )}
       </div>
     </div>

@@ -13,12 +13,12 @@
 
 .popup-content {
   position: relative;
-  width: 168%;
-  height: 168%;
+  width: 158%;
+  height: 158%;
   overflow-y: auto;
   background-color: rgb(180, 163, 196);
-   padding: 20px; */
-   margin:20px; */
+  padding: 20px;
+  margin: 20px;
   /* border-radius: 10px; */
   /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3); shadow effect */
 }

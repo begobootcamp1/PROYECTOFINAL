@@ -34,7 +34,7 @@ export default function PastilleroPopup(props) {
     <div className="popup">
       <div className="popup-content">
         {turno == 0 ? (
-          <p>NO HAY NINGUNA MEDICINA QUE TOMAR</p>
+          <h1>No hay ninguna medicina que tomar</h1>
         ) : (
           <div>
             {datos ? <CardMedicina datos={datos} /> : <p>Cargando...</p>}

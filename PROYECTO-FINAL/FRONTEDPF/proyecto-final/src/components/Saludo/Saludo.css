@@ -1,5 +1,4 @@
 .App {
-  font-family: sans-serif;
   text-align: center;
   /* border: 2px solid #ffff00; */
   margin: 10px;
@@ -12,8 +11,8 @@
   /* background-color: rgb(160, 80, 80); */
   padding: 4px;
   height: 80px;
-  margin: 0px;
-  font-weight: bold;
+  margin: 5px;
+  /* font-weight: bold; */
   text-align: center;
 }
 span {
