@@ -9,13 +9,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-size: 240px;
+  background-size: 160px;
 }
 
 .popup-content {
   position: absolute;
-  width: 196%;
-  height: 196%;
+  width: 188%;
+  height: 188%;
   overflow-y: auto;
   background-color: rgb(119, 90, 146);
   /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3); /* shadow effect */

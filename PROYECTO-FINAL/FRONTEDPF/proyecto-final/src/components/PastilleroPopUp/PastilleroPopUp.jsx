@@ -10,22 +10,23 @@ export default function PastilleroPopup(props) {
   const now = moment();
   const dia = now.format("dddd");
   const hora = now.format("HH:mm:ss");
-  let turno = 0;
+  let turnoMedicina = 0;
+
   useEffect(() => {
     const fetchData = async () => {
       if (hora > "06:00:00" && hora < "10:00:00") {
-        turno = 1;
+        turnoMedicina = 1;
       } else if (hora >= "10:00:00" && hora < "20:00:00") {
-        turno = 2;
+        turnoMedicina = 2;
       } else if (hora >= "20:00:00" && hora < "23:50:00") {
-        turno = 3;
+        turnoMedicina = 3;
       }
-      console.log(turno, "turno");
       const response = await fetch(
-        `http://localhost:3000/medicina/medicina/${dia}/${turno}`
+        `http://localhost:3000/medicina/medicina/${dia}/${turnoMedicina}`
       );
       let jsonData = await response.json();
       setDatos(jsonData);
+      console.log(datos, "pastillero");
     };
 
     fetchData();
@@ -33,11 +34,11 @@ export default function PastilleroPopup(props) {
   return (
     <div className="popup">
       <div className="popup-content">
-        {turno == 0 ? (
+        {datos?.length <= 0 ? (
           <h1>No hay ninguna medicina que tomar</h1>
         ) : (
           <div>
-            {datos ? <CardMedicina datos={datos} /> : <p>Cargando...</p>}
+            <CardMedicina datos={datos} />
           </div>
         )}
 
