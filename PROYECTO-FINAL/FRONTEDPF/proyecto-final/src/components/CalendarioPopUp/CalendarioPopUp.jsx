@@ -14,7 +14,7 @@ export default function CalendarioPopup(props) {
   }, []);
 
   return (
-    <div className="popup">
+    <div className="calendarioPopup">
       <div className="popup-content">
         <button className="close-button" onClick={props.onClick}>
           Cerrar

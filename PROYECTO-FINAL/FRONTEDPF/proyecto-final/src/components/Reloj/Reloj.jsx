@@ -17,7 +17,7 @@ export default function RelojAnalogico() {
 
   return (
     <div className="relojAnalogico">
-      <Reloj value={value} size={300} />
+      <Reloj value={value} size={200} />
     </div>
   );
 }

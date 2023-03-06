@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useFormik } from "formik";
+import "./AdministradorEditar.css";
 
 export default function AdministradorEditar({
   setUsuario,

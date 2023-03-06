@@ -39,10 +39,10 @@
 
 .carousel-item {
   position: absolute;
-  top: 200px;
+  top: 150px;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,12 +53,12 @@
   display: flex;
   align-items: center;
   /* justify-content:; */
-  height: 600px; /* altura fija para el contenedor */
+  height: 550px; /* altura fija para el contenedor */
 }
 
 .imagen-contenedor img {
-  max-height: 100%; /* la imagen se ajusta al alto máximo del contenedor */
-  max-width: 100%; /* la imagen se ajusta al ancho máximo del contenedor */
+  max-height: 90%; /* la imagen se ajusta al alto máximo del contenedor */
+  max-width: 90%; /* la imagen se ajusta al ancho máximo del contenedor */
   object-fit: contain; /* para evitar que la imagen se corte */
   margin: 0 auto; /* centra la imagen horizontalmente */
   height: auto;

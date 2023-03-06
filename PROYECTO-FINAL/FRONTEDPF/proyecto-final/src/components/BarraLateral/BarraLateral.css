@@ -1,34 +1,33 @@
 .barraLateral {
   display: grid;
-  /* grid-template-columns: 500px;
-  grid-template-rows: auto; */
+  grid-template-columns: 500px;
+  /* grid-template-rows: auto; */
   /* podemos poner auto en lugar de los px de las columnas para ajustar el texto. si en columnas ponemos 1fr para cada una nos ocupará toda la página */
-  gap: 1em;
+  gap: 0.5em;
   justify-items: auto;
   align-items: center;
-  /* background: rgb(135, 173, 135); */
   padding: 0px;
   margin: 10px;
   margin-right: 40px;
-  flex-wrap: "rap";
+  flex-wrap: "wrap";
 }
 .barraLateral > div {
   background: transparent;
   padding: 1 em;
 }
-/* .barraLateral > div:hover {
-  border: 2px solid red;
-} */
-.barraLateral.Reloj {
+
+.barraLateral .Reloj {
+  display: flex;
+  gap: 0.5;
   font-family: sans-serif;
   text-align: center;
   justify-items: stretch;
   align-items: stretch;
 }
 .barraLateral.FechaActual {
-  font-size: 48px;
+  font-size: 24px;
   font-weight: bolder;
-  text-align: start;
+  text-align: center;
   color: black;
 }
 .barraLateral.CardAdministrador {
@@ -47,7 +46,3 @@
   color: white;
   padding: 8px 16px;
 }
-
-/* .boton-llamar:hover {
-  background-color: #0069d9;
-} */

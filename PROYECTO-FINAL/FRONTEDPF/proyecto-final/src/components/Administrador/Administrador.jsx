@@ -114,7 +114,7 @@ export default function Administrador(props) {
 
   return (
     <>
-      <h1> FORMULARIO CONTACTO </h1>
+      <h2> FORMULARIO CONTACTO </h2>
       <div className="tabla-administrador">
         <table>
           <thead>
@@ -161,7 +161,7 @@ export default function Administrador(props) {
                     setIdUsuario={setIdUsuario}
                   />
                 ) : (
-                  <p></p>
+                  <div></div>
                 )}
               </>
             ))}
@@ -233,7 +233,7 @@ export default function Administrador(props) {
         </container>
       </div>
       <br />
-      <h1> FORMULARIO MEDICINAS </h1>
+      <h2> FORMULARIO MEDICINA </h2>
 
       <div className="tabla-medicina">
         <table>
@@ -294,6 +294,14 @@ export default function Administrador(props) {
         </container>
       </div>
       <br />
+
+      <h2> FORMULARIO IMAGEN </h2>
+
+      <div className="tabla-imagen">
+        <button type="submit" className="agregar">
+          Agregar Imagen
+        </button>
+      </div>
       <div>
         <button className="salir" onClick={() => salir()}>
           Salir

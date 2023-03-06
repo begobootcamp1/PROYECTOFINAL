@@ -30,12 +30,14 @@ export default function BarraLateral() {
     <div className="barraLateral">
       <div className="Reloj">
         <Reloj />
-      </div>
-      <div className="FechaActual">
-        <FechaActual />
-      </div>
-      <div className="Saludo">
-        <Saludo />
+        <div>
+          <div className="FechaActual">
+            <FechaActual />
+          </div>
+          <div className="Saludo">
+            <Saludo />
+          </div>
+        </div>
       </div>
       <div className="CardAdministrador">
         <CardContacto datos={datos} />
