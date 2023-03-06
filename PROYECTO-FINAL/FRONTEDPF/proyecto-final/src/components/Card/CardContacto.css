@@ -1,9 +1,22 @@
 .Wrap {
+  display: flex;
   border: 2px solid;
   border-color: black;
   /* background-color: brown; */
   margin: 0;
   padding: 0;
+}
+
+.Wrap .container {
+  width: 100%;
+}
+
+.Wrap .imagen {
+  width: 55%;
+}
+
+.Wrap .imagen img {
+  width: 100%;
 }
 
 .titulo {
