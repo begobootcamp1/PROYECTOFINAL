@@ -60,11 +60,10 @@ contactoQueries.updateContacto = async (id, contactoData) => {
   try {
     conn = await deb.createConnection();
     let contactoObj = {
-      nombre: contactoData.nombre,
+      parentesco: req.body.parentesco,
       telefono: contactoData.telefono,
-      fechaNacimiento: contactoData.fechaNacimiento,
-      //fotoContacto: contactoData.fotoContacto,
-      rol: contactoData.rol,
+      contactoComentario: contactoData.contactoComentario,
+      fotoContacto: contactoData.fotoContacto,
     };
     contactoObj = await utils.removeUndefinedKeys(contactoObj);
     return await db.query(

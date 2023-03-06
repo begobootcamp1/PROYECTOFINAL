@@ -38,7 +38,6 @@ export default function Administrador(props) {
   }
 
   async function onSubmit(values) {
-    console.log(values);
     let formData = new FormData();
     formData.append("fotoContacto", values.fotoContacto);
     formData.append("nombre", values.nombre);
@@ -63,7 +62,17 @@ export default function Administrador(props) {
     await new Promise((resolve) => setTimeout(resolve, 2000));
     actions.resetForm();
   }
-
+  async function deleteUser(id, e) {
+    e.preventDefault();
+    const response = await fetch(`http://localhost:3000/contacto/${id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+    let jsonData = await response.json();
+    setUsuario(jsonData);
+  }
   const {
     values,
     handleBlur,
@@ -100,6 +109,7 @@ export default function Administrador(props) {
     };
     fetchData();
   }, []);
+
   return (
     <>
       <h1> FORMULARIO CONTACTO </h1>
@@ -127,7 +137,13 @@ export default function Administrador(props) {
                 <td>{contacto.contactoComentario}</td>
                 <td>
                   <button className="editar">Editar</button>
-                  <button className="borrar">Borrar</button>
+
+                  <button
+                    onClick={(e) => deleteUser(contacto.id, e)}
+                    className="borrar"
+                  >
+                    Borrar
+                  </button>
                 </td>
               </tr>
             ))}
