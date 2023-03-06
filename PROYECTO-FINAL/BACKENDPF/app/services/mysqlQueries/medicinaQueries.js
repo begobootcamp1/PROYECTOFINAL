@@ -62,7 +62,7 @@ medicinaQueries.deleteMedicina = async (id) => {
 medicinaQueries.updateEvento = async (id, medicinaData) => {
   let conn = null;
   try {
-    conn = await deb.createConnection();
+    conn = await db.createConection();
     let medicinaObj = {
       nombreMedicina: medicinaData.nombreMedicina,
       indicacion: medicinaData.indicacion,

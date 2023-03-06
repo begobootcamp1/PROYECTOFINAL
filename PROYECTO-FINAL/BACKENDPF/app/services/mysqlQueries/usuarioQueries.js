@@ -59,7 +59,7 @@ usuarioQueries.deleteUsuario = async (id) => {
 usuarioQueries.updateUsuario = async (id, usuarioData) => {
   let conn = null;
   try {
-    conn = await deb.createConnection();
+    conn = await db.createConection();
     let usuarioObj = {
       nombre: usuarioData.nombre,
       telefono: usuarioData.telefono,

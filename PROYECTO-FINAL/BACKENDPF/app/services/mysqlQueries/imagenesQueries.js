@@ -56,7 +56,7 @@ imagenesQueries.deleteimagen = async (id) => {
 imagenesQueries.updateEvento = async (id, imagenData) => {
   let conn = null;
   try {
-    conn = await deb.createConnection();
+    conn = await db.createConection();
     let imagenObj = {
       textoImagen: imagenData.textoImagen,
       path: imagenData.path,

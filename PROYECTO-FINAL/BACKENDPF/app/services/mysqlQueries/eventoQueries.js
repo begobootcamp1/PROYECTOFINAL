@@ -67,7 +67,7 @@ eventoQueries.deleteEvento = async (id) => {
 eventoQueries.updateEvento = async (id, eventoData) => {
   let conn = null;
   try {
-    conn = await deb.createConnection();
+    conn = await db.createConection();
     let eventoObj = {
       nombre: eventoData.nombre,
       fecha: eventoData.fecha,

@@ -1,5 +1,6 @@
 import dao from "../services/dao.js";
 import { currentDir } from "../index.js";
+import utils from "../utils/utils.js";
 
 const __dirname = currentDir().__dirname;
 
@@ -65,30 +66,52 @@ contactoController.deleteContacto = async (req, res) => {
 
 contactoController.updateContacto = async (req, res) => {
   const { id } = req.params;
+  const { nombre, fechaNacimiento, telefono, parentesco, contactoComentario } =
+    req.body;
+  let contactoObj;
   try {
-    // 1 archivo [{}] , >1 archivo [[{},{},...]]
-    // Obtenemos un array de objetos con todas las imagenes
-    const images = !req.files.length
-      ? [req.files.fotoContacto]
-      : req.files.fotoContacto;
-    // Recorremos el array para procesar cada imagen
-    images.forEach(async (image) => {
-      // Ya podemos acceder a las propiedades del objeto image.
-      // Obtenemos la ruta de la imagen.
-      let uploadPath = __dirname + "/public/images/images/" + image.name;
-      let bbddPath = "images/images/" + image.name;
-      // Usamos el método mv() para ubicar el archivo en nuestro servidor
-      image.mv(uploadPath, (err) => {
-        if (err) return res.status(500).send(err);
-      });
-      let contactoObj = {
-        telefono: req.body.telefono,
-        parentesco: req.body.parentesco,
-        fotoContacto: bbddPath,
-        contactoComentario: req.body.contactoComentario,
-      };
-      await dao.updateContacto(id, contactoObj);
-    });
+    //   // 1 archivo [{}] , >1 archivo [[{},{},...]]
+    //   // Obtenemos un array de objetos con todas las imagenes
+    //   if (req.files != null) {
+    //     const images = !req.files.length
+    //       ? [req.files.fotoContacto]
+    //       : req.files.fotoContacto;
+    //     // Recorremos el array para procesar cada imagen
+
+    //     images.forEach(async (image) => {
+    //       // Ya podemos acceder a las propiedades del objeto image.
+    //       // Obtenemos la ruta de la imagen.
+    //       let uploadPath = __dirname + "/public/images/images/" + image.name;
+    //       let bbddPath = "images/images/" + image.name;
+    //       // Usamos el método mv() para ubicar el archivo en nuestro servidor
+    //       image.mv(uploadPath, (err) => {
+    //         if (err) {
+    //           return res.status(500).send(err);
+    //         }
+    //         contactoObj = {
+    //           nombre: nombre,
+    //           telefono: telefono,
+    //           fechaNacimiento: fechaNacimiento,
+    //           parentesco: parentesco,
+    //           fotoContacto: bbddPath,
+    //           contactoComentario: contactoComentario,
+    //         };
+    //       });
+    //       let contactoData = await utils.removeUndefinedKeys(contactoObj);
+
+    //       await dao.updateContacto(id, contactoData);
+    //     });
+    //   } else {
+    contactoObj = {
+      fechaNacimiento: fechaNacimiento,
+      nombre: nombre,
+      telefono: telefono,
+      parentesco: parentesco,
+      contactoComentario: contactoComentario,
+    };
+    let contactoData = await utils.removeUndefinedKeys(contactoObj);
+    await dao.updateContacto(id, contactoData);
+
     const contactos = await dao.getContacto();
     return res.send(contactos);
   } catch (e) {

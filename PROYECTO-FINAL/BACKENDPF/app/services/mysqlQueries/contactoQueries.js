@@ -57,18 +57,13 @@ contactoQueries.deleteContacto = async (id) => {
 
 contactoQueries.updateContacto = async (id, contactoData) => {
   let conn = null;
+  console.log(contactoData);
   try {
-    conn = await deb.createConnection();
-    let contactoObj = {
-      parentesco: req.body.parentesco,
-      telefono: contactoData.telefono,
-      contactoComentario: contactoData.contactoComentario,
-      fotoContacto: contactoData.fotoContacto,
-    };
-    contactoObj = await utils.removeUndefinedKeys(contactoObj);
+    conn = await db.createConection();
+
     return await db.query(
       "UPDATE contacto SET ? WHERE id =?",
-      [contactoObj, id],
+      [contactoData, id],
       "update",
       conn
     );

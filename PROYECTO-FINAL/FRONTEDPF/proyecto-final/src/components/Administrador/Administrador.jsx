@@ -3,8 +3,10 @@ import "./Administrador.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
+import AdministradorEditar from "../AdministradorEditar/AdministradorEditar";
 
 export default function Administrador(props) {
+  const [idUsuario, setIdUsuario] = useState(0);
   const [usuario, setUsuario] = useState([]);
   const [nuevoContacto, setNuevoContacto] = useState();
   const navigate = useNavigate();
@@ -128,91 +130,109 @@ export default function Administrador(props) {
           </thead>
           <tbody>
             {usuario.map((contacto) => (
-              <tr>
-                <td>{contacto.nombre}</td>
-                <td>{contacto.telefono}</td>
-                <td>{contacto.parentesco}</td>
-                <td>{contacto.fechaNacimiento.split("T")[0]}</td>
-                <td>{contacto.fotoContacto}</td>
-                <td>{contacto.contactoComentario}</td>
-                <td>
-                  <button className="editar">Editar</button>
+              <>
+                <tr>
+                  <td>{contacto.nombre}</td>
+                  <td>{contacto.telefono}</td>
+                  <td>{contacto.parentesco}</td>
+                  <td>{contacto.fechaNacimiento.split("T")[0]}</td>
+                  <td>{contacto.fotoContacto}</td>
+                  <td>{contacto.contactoComentario}</td>
+                  <td>
+                    <button
+                      onClick={() => setIdUsuario(contacto.id)}
+                      className="editar"
+                    >
+                      Editar
+                    </button>
+                    <button
+                      onClick={(e) => deleteUser(contacto.id, e)}
+                      className="borrar"
+                    >
+                      Borrar
+                    </button>
+                  </td>
+                </tr>
 
-                  <button
-                    onClick={(e) => deleteUser(contacto.id, e)}
-                    className="borrar"
-                  >
-                    Borrar
-                  </button>
-                </td>
-              </tr>
+                {idUsuario == contacto.id ? (
+                  <AdministradorEditar
+                    contacto={contacto}
+                    setUsuario={setUsuario}
+                    setIdUsuario={setIdUsuario}
+                  />
+                ) : (
+                  <p></p>
+                )}
+              </>
             ))}
           </tbody>
         </table>
       </div>
       <br />
       <div>
-        <form onSubmit={handleSubmit}>
-          <label>nombre</label>
-          <input
-            type="text"
-            name="nombre"
-            onChange={handleChange}
-            value={values.nombre}
-            onBlur={handleBlur}
-          />
-          <label>telefono</label>
-          <input
-            type="number"
-            name="telefono"
-            onChange={handleChange}
-            value={values.telefono}
-            onBlur={handleBlur}
-          />
+        <container>
+          <form onSubmit={handleSubmit}>
+            <label>nombre</label>
+            <input
+              type="text"
+              name="nombre"
+              onChange={handleChange}
+              value={values.nombre}
+              onBlur={handleBlur}
+            />
+            <label>telefono</label>
+            <input
+              type="number"
+              name="telefono"
+              onChange={handleChange}
+              value={values.telefono}
+              onBlur={handleBlur}
+            />
 
-          <label>parentesco</label>
-          <input
-            type="text"
-            name="parentesco"
-            onChange={handleChange}
-            value={values.parentesco}
-            onBlur={handleBlur}
-          />
+            <label>parentesco</label>
+            <input
+              type="text"
+              name="parentesco"
+              onChange={handleChange}
+              value={values.parentesco}
+              onBlur={handleBlur}
+            />
 
-          <label>fechaNacimiento</label>
-          <input
-            type="text"
-            name="fechaNacimiento"
-            onChange={handleChange}
-            value={values.fechaNacimiento}
-            onBlur={handleBlur}
-          />
+            <label>fechaNacimiento</label>
+            <input
+              type="text"
+              name="fechaNacimiento"
+              onChange={handleChange}
+              value={values.fechaNacimiento}
+              onBlur={handleBlur}
+            />
 
-          <label>fotoContacto</label>
-          <input
-            type="file"
-            accept="image/*"
-            name="fotoContacto"
-            onChange={(e) => setFieldValue("fotoContacto", e.target.files[0])}
-            value={undefined}
-            onBlur={handleBlur}
-          />
+            <label>fotoContacto</label>
+            <input
+              type="file"
+              accept="image/*"
+              name="fotoContacto"
+              onChange={(e) => setFieldValue("fotoContacto", e.target.files[0])}
+              value={undefined}
+              onBlur={handleBlur}
+            />
 
-          <label>contactoComentario</label>
-          <input
-            type="text"
-            name="contactoComentario"
-            onChange={handleChange}
-            value={values.contactoComentario}
-            onBlur={handleBlur}
-          />
-          <br />
-          <button disabled={isSubmitting} type="submit" className="agregar">
-            Agregar Contacto
-          </button>
-        </form>
+            <label>contactoComentario</label>
+            <input
+              type="text"
+              name="contactoComentario"
+              onChange={handleChange}
+              value={values.contactoComentario}
+              onBlur={handleBlur}
+            />
+            <br />
+            <button disabled={isSubmitting} type="submit" className="agregar">
+              Agregar Contacto
+            </button>
+          </form>
+        </container>
       </div>
-
+      <br />
       <h1> FORMULARIO MEDICINAS </h1>
 
       <div className="tabla-medicina">
@@ -241,35 +261,37 @@ export default function Administrador(props) {
       </div>
       <br />
       <div>
-        <form onSubmit={handleSubmit}>
-          <label>Indicación</label>
-          <input
-            type="text"
-            name="indicacion"
-            // onChange={(e) => handleMedicina(e)}
-            // value={nuevoMedicamento.indicacion}
-          />
+        <container>
+          <form onSubmit={handleSubmit}>
+            <label>Indicación</label>
+            <input
+              type="text"
+              name="indicacion"
+              // onChange={(e) => handleMedicina(e)}
+              // value={nuevoMedicamento.indicacion}
+            />
 
-          <label>fotoMedicina</label>
-          <input
-            type="file"
-            name="fotoMedicina"
-            // onChange={(e) => handleMedicina(e)}
-            // value={nuevoMedicamento.fotoMedicina}
-          />
+            <label>fotoMedicina</label>
+            <input
+              type="file"
+              name="fotoMedicina"
+              // onChange={(e) => handleMedicina(e)}
+              // value={nuevoMedicamento.fotoMedicina}
+            />
 
-          <label>nombreMedicina</label>
-          <input
-            type="text"
-            name="nombreMedicina"
-            // onChange={(e) => handleMedicina(e)}
-            // value={nuevoMedicamento.nombreMedicina}
-          />
-          <br />
-          <button type="submit" className="agregar">
-            Agregar Medicina
-          </button>
-        </form>
+            <label>nombreMedicina</label>
+            <input
+              type="text"
+              name="nombreMedicina"
+              // onChange={(e) => handleMedicina(e)}
+              // value={nuevoMedicamento.nombreMedicina}
+            />
+            <br />
+            <button type="submit" className="agregar">
+              Agregar Medicina
+            </button>
+          </form>
+        </container>
       </div>
       <br />
       <div>
