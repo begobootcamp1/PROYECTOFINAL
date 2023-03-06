@@ -21,8 +21,8 @@ export default function Carousel() {
     <>
       <ReactResponsiveCarousel
         autoPlay
-        interval={6000}
-        transitionTime={6000}
+        interval={7000}
+        transitionTime={7000}
         infiniteLoop
         showThumbs={false}
       >
