@@ -9,6 +9,7 @@ export default function CalendarioPopup(props) {
       const response = await fetch(`http://localhost:3000/evento/evento`);
       let jsonData = await response.json();
       setDatos(jsonData);
+      console.log(datos);
     };
     fetchData();
   }, []);

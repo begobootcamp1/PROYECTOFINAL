@@ -59,6 +59,7 @@ eventoController.updateEvento = async (req, res) => {
 eventoController.getEvento = async (req, res) => {
   try {
     let evento = await dao.getEvento(fecha);
+    console.log(evento, "holaa");
     if (evento.lenght <= 0) {
       return res.status(404);
     }
