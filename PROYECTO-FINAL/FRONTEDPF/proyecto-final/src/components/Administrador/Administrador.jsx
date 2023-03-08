@@ -123,7 +123,7 @@ export default function Administrador(props) {
               <th>Teléfono</th>
               <th>Parentesco</th>
               <th>Fecha Nacimiento</th>
-              <th>Foto</th>
+              {/* <th>Foto</th> */}
               <th>Comentario</th>
               <th>Acciones</th>
             </tr>
@@ -136,7 +136,7 @@ export default function Administrador(props) {
                   <td>{contacto.telefono}</td>
                   <td>{contacto.parentesco}</td>
                   <td>{contacto.fechaNacimiento.split("T")[0]}</td>
-                  <td>{contacto.fotoContacto}</td>
+                  {/* <td>{contacto.fotoContacto}</td> */}
                   <td>{contacto.contactoComentario}</td>
                   <td>
                     <button
@@ -240,7 +240,7 @@ export default function Administrador(props) {
           <thead>
             <tr>
               <th>Indicación</th>
-              <th>Foto</th>
+              {/* <th>Foto</th> */}
               <th>NombreMedicina</th>
               <th>Acciones</th>
             </tr>
@@ -249,7 +249,7 @@ export default function Administrador(props) {
             {medicina.map((medicina) => (
               <tr>
                 <td>{medicina.indicacion}</td>
-                <td>{medicina.fotoMedicina}</td>
+                {/* <td>{medicina.fotoMedicina}</td> */}
                 <td>{medicina.nombreMedicina}</td>
                 <td>
                   <button className="borrar">Borrar</button>
